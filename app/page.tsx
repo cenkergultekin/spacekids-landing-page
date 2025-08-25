@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
-import FeatureOverview from '@/components/FeatureOverview'
+import ModernCardsSection from '@/components/ModernCardsSection'
 import PlatformShowcase from '@/components/PlatformShowcase'
 import WorkforceManagement from '@/components/WorkforceManagement'
 import CustomerSpotlight from '@/components/CustomerSpotlight'
@@ -14,7 +14,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <HeroSection />
-      <FeatureOverview />
+      <ModernCardsSection />
       <PlatformShowcase />
       <WorkforceManagement />
       <CustomerSpotlight />
