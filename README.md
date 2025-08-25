@@ -1,4 +1,4 @@
-# Employment Hero Landing Page
+# Spacekids Landing Page
 
 A modern, responsive SaaS landing page built with Next.js, React, TailwindCSS, and Framer Motion. This project replicates the design and functionality of the Employment Hero website with smooth animations and interactive elements.
 
