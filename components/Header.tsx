@@ -1,13 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, User } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const menuItems = ['Solutions', 'Resources', 'Pricing', 'Login']
+  const menuItems = ['Businesses', 'Partners', 'Employees', 'Job Seekers']
 
   return (
     <motion.header 
@@ -20,10 +20,13 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.div 
-            className="flex-shrink-0"
+            className="flex-shrink-0 flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <h1 className="text-2xl font-bold text-gray-900">Employment Hero</h1>
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-sm">S</span>
+            </div>
+            <h1 className="text-xl font-bold text-gray-900">spacekids</h1>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -32,7 +35,7 @@ export default function Header() {
               <motion.a
                 key={item}
                 href="#"
-                className="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
                 whileHover={{ y: -2 }}
               >
                 {item}
@@ -40,14 +43,16 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <motion.button
-            className="hidden md:block bg-gradient-to-r from-primary-600 to-primary-500 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-200"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Book a Demo
-          </motion.button>
+                     {/* Right side icons */}
+           <div className="hidden md:flex items-center space-x-4">
+             <motion.button
+               className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+               whileHover={{ scale: 1.05 }}
+             >
+               <User size={20} />
+               <span className="text-sm font-medium">Login</span>
+             </motion.button>
+           </div>
 
           {/* Mobile menu button */}
           <button
@@ -72,18 +77,23 @@ export default function Header() {
                 <a
                   key={item}
                   href="#"
-                  className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
                 >
                   {item}
                 </a>
               ))}
-              <button className="w-full mt-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white px-6 py-2 rounded-lg font-medium">
-                Book a Demo
-              </button>
+                             <div className="flex items-center space-x-4 px-3 py-2">
+                 <button className="flex items-center space-x-2 text-gray-700">
+                   <User size={20} />
+                   <span className="text-sm">Login</span>
+                 </button>
+               </div>
             </div>
           </motion.div>
         )}
       </div>
+
+      
     </motion.header>
   )
 }
