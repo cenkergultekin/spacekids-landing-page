@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Zap, Play } from 'lucide-react'
+import Ballpit from './ui/HeroBalls'
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -16,28 +17,12 @@ export default function HeroSection() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      {/* Background Ballpit canvas */}
+      <div className="absolute inset-0">
+        <Ballpit className="w-full h-full" followCursor={false} />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="relative z-10">
-          {/* Awards/Badges */}
-          <motion.div 
-            className="flex justify-center items-center space-x-4 mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="flex items-center space-x-2 bg-red-50 px-3 py-1 rounded-full border border-red-200">
-              <span className="text-red-600 font-bold text-xs">G</span>
-              <span className="text-red-600 text-xs font-medium">SUMMER 2023 AUSTRALIA Regional Leader</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
-              <span className="text-orange-600 font-bold text-xs">G</span>
-              <span className="text-orange-600 text-xs font-medium">SUMMER 2023 Grid Leader</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-yellow-50 px-3 py-1 rounded-full border border-yellow-200">
-              <span className="text-yellow-600 font-bold text-xs">G</span>
-              <span className="text-yellow-600 text-xs font-medium">SUMMER 2023 Momentum Leader</span>
-            </div>
-          </motion.div>
 
           {/* Main Content Container */}
           <div className="relative flex items-center justify-center mb-8">
@@ -93,10 +78,10 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Leap into the{' '}
+                Sky rocket your{' '}
                 <span className="relative">
                   <Zap className="inline-block text-yellow-500 w-8 h-8 md:w-12 md:h-12 -mt-1 md:-mt-2" />
-                  future of work
+                  career
                 </span>
               </motion.h1>
 
@@ -107,7 +92,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                The world's first Employment Operating System bringing Hiring, HR, Payroll and Benefits under one roof.
+                 Senin gibi hedefleri olan insanlarla bir araya gel, destek al ve kariyerinde yeni kapılar aç. Birlikte daha yükseğe çıkıyoruz.
               </motion.p>
             </div>
 
