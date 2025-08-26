@@ -163,7 +163,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 <Mail size={16} />
-                <span>hello@employmenthero.com</span>
+                <span>sedanurceylan@dreamdatalabs.com</span>
               </motion.div>
               <motion.div
                 className="flex items-center space-x-2 text-gray-300 text-sm"
@@ -181,7 +181,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <MapPin size={16} />
-                <span>Sydney, Australia</span>
+                <span>İstanbul , Türkiye</span>
               </motion.div>
             </div>
           </motion.div>
