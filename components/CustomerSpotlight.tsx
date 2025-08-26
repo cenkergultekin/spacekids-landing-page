@@ -18,7 +18,7 @@ export default function CustomerSpotlight() {
     <section ref={ref} className="py-20 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 gradient-bg"></div>
-      
+
       {/* Parallax Background Icon */}
       <motion.div
         className="absolute right-10 bottom-10 opacity-10"
@@ -62,10 +62,11 @@ export default function CustomerSpotlight() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            "At the click of a button, we can coordinate everything from the recruitment 
-            process through to issuing a contract, managing payroll and compliance 
-            documents for new staff. This has streamlined both short-term tasks 
-            through to end-of-year reviews."
+            <b>Vizyon</b> <br />
+            Bireylerin potansiyellerini keşfederek global ölçekte kariyerlerini hızlandırmalarına ilham veren, yenilikçi ve sürdürülebilir bir topluluk ekosistemi yaratmak. <br /> <br />
+            <b>Misyon</b> <br />
+            Profesyonellere ve girişimcilere; networking, yetkinlik geliştirme, mentorluk ve kariyer fırsatları sunarak, onların hem kişisel hem de mesleki yolculuklarında güvenilir bir yol arkadaşı olmak.
+
           </motion.blockquote>
 
           {/* Customer Info */}
@@ -76,9 +77,7 @@ export default function CustomerSpotlight() {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg font-semibold mb-2">Customer Spotlight</p>
-            <p className="text-xl font-bold">Tasmanian Oyster Company</p>
-            <p className="text-sm opacity-75 mt-1">Leading seafood producer in Australia</p>
+
           </motion.div>
 
           {/* Additional Stats */}
@@ -107,19 +106,6 @@ export default function CustomerSpotlight() {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* CTA Button */}
-          <motion.button
-            className="mt-12 bg-white text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            viewport={{ once: true }}
-          >
-            Read More Success Stories
-          </motion.button>
         </motion.div>
       </div>
 
