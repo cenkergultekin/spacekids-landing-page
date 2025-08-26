@@ -6,7 +6,6 @@ import WorkforceManagement from '@/components/WorkforceManagement'
 import CustomerSpotlight from '@/components/CustomerSpotlight'
 import StatisticsSection from '@/components/StatisticsSection'
 import FAQSection from '@/components/FAQSection'
-import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <CustomerSpotlight />
       <StatisticsSection />
       <FAQSection />
-      <FinalCTA />
       <Footer />
     </main>
   )

@@ -154,8 +154,8 @@ export default function HeroSection() {
                   <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                     <Play size={32} className="text-white ml-1" />
                   </div>
-                  <p className="text-white text-lg font-medium mb-2">Watch Our Platform Demo</p>
-                  <p className="text-gray-300 text-sm">See how SpaceKids transforms workforce management</p>
+                  <p className="text-white text-lg font-medium mb-2">Örnek Video Yüklenecek</p>
+                  <p className="text-gray-300 text-sm">Buraya yapay zeka ile oluşturulacak bir video yüklenecek</p>
                 </div>
               </div>
               
