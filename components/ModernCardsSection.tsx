@@ -42,7 +42,7 @@ export default function ModernCardsSection() {
                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                  <span className="text-green-600 text-2xl">🏢</span>
                </div>
-               <h3 className="text-2xl font-bold text-gray-900 mb-4">Community Support (Topluluk Desteği)</h3>
+               <h3 className="text-2xl font-bold text-gray-900 mb-4">Community Support</h3>
                <p className="text-gray-600 mb-6">
                  Streamline your HR operations with our comprehensive platform. Manage hiring, payroll, and compliance all in one place.
                </p>
