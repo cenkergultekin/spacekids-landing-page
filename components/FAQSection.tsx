@@ -11,7 +11,7 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "What is Employment Hero?",
+      question: "... nedir?",
       answer: "Employment Hero is a comprehensive employment management platform that helps businesses streamline their HR operations. From hiring and onboarding to payroll and compliance, we provide everything you need to manage your workforce effectively."
     },
     {

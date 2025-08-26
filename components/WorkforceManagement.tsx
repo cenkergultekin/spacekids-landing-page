@@ -65,6 +65,21 @@ export default function WorkforceManagement() {
   return (
     <section ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Yeni Başlık Bölümü */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Workforce Management
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Streamline your HR operations with our comprehensive workforce management platform
+          </p>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
           <motion.div
