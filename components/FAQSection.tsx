@@ -11,28 +11,25 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "... nedir?",
-      answer: "Employment Hero is a comprehensive employment management platform that helps businesses streamline their HR operations. From hiring and onboarding to payroll and compliance, we provide everything you need to manage your workforce effectively."
+      question: "1. …………… nedir?",
+      answer: "………., kariyerini geliştirmek isteyen bireylerin networking, eğitim, mentorluk ve topluluk desteği ile kendilerini ileriye taşıyabilecekleri bir platformdur."
+
     },
     {
-      question: "What are the benefits of using Employment Hero?",
-      answer: "Employment Hero offers numerous benefits including automated payroll processing, streamlined recruitment workflows, comprehensive compliance management, employee self-service portals, and real-time analytics. Our platform helps reduce administrative overhead by up to 60% while improving employee satisfaction."
+      question: "2. Kimler üye olabilir?",
+      answer: "Öğrenciler, genç profesyoneller, girişimciler ve kariyerinde ilerlemek isteyen herkes DreamData Labs topluluğuna katılabilir."
     },
     {
-      question: "Does Employment Hero help with legal and compliance?",
-      answer: "Yes, Employment Hero includes built-in compliance features that help ensure your business meets all relevant employment laws and regulations. Our platform automatically updates with the latest legal requirements and provides audit trails for all HR activities."
+      question: "3. Üyelik ücretli mi?",
+      answer: "Bazı temel özellikler ücretsizdir. Gelişmiş özellikler ve özel fırsatlar için farklı üyelik paketleri sunuyoruz."
     },
     {
-      question: "How can I learn more about Employment Hero?",
-      answer: "You can learn more about Employment Hero by booking a personalized demo with our team, exploring our comprehensive documentation, or attending one of our regular webinars. We also offer free trials so you can experience the platform firsthand."
+      question: "4. …………….’te hangi imkanlardan faydalanabilirim?",
+      answer: "Eğitim içerikleri, networking etkinlikleri, mentorluk desteği, iş ilanları ve proje fırsatlarına erişebilirsiniz."
     },
     {
-      question: "Is Employment Hero suitable for small businesses?",
-      answer: "Absolutely! Employment Hero is designed to scale with your business. We offer solutions for businesses of all sizes, from startups with just a few employees to large enterprises with thousands of staff members."
-    },
-    {
-      question: "What kind of support do you provide?",
-      answer: "We provide comprehensive support including 24/7 customer service, dedicated account managers for enterprise clients, extensive documentation, video tutorials, and regular training sessions. Our support team is always ready to help you get the most out of the platform."
+      question: "5. Etkinlikler nasıl gerçekleşiyor?",
+      answer: "Etkinlikler hem çevrim içi hem de yüz yüze düzenlenmektedir. Etkinlik takvimi uygulama ve web sitesi üzerinden paylaşılır."
     }
   ]
 
@@ -44,7 +41,7 @@ export default function FAQSection() {
     <section ref={ref} className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -123,7 +120,7 @@ export default function FAQSection() {
             Still have questions?
           </h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Our team is here to help you find the perfect solution for your business. 
+            Our team is here to help you find the perfect solution for your business.
             Get in touch with us for personalized assistance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
