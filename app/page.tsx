@@ -7,6 +7,7 @@ import CustomerSpotlight from '@/components/CustomerSpotlight'
 import StatisticsSection from '@/components/StatisticsSection'
 import FAQSection from '@/components/FAQSection'
 import Footer from '@/components/Footer'
+import ScrollDemoSection from '@/components/ScrollDemoSection'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <HeroSection />
       <ModernCardsSection />
       <CustomerSpotlight />
-      <PlatformShowcase />
+      <ScrollDemoSection />
       <WorkforceManagement />
       <StatisticsSection />
       <FAQSection />
