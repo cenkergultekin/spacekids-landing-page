@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { Quote } from 'lucide-react'
+import { Quote, Eye, Target } from 'lucide-react'
 
 export default function CustomerSpotlight() {
   const ref = useRef<HTMLDivElement>(null)
@@ -54,20 +54,86 @@ export default function CustomerSpotlight() {
             </div>
           </motion.div>
 
-          {/* Main Quote */}
-          <motion.blockquote
-            className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-8 leading-relaxed"
+          {/* Vision & Mission Cards */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <b>Vizyon</b> <br />
-            Bireylerin potansiyellerini keşfederek global ölçekte kariyerlerini hızlandırmalarına ilham veren, yenilikçi ve sürdürülebilir bir topluluk ekosistemi yaratmak. <br /> <br />
-            <b>Misyon</b> <br />
-            Profesyonellere ve girişimcilere; networking, yetkinlik geliştirme, mentorluk ve kariyer fırsatları sunarak, onların hem kişisel hem de mesleki yolculuklarında güvenilir bir yol arkadaşı olmak.
+            {/* Vizyon Card */}
+            <motion.div
+              className="group relative rounded-2xl p-[1px] bg-gradient-to-r from-violet-400/440 via-fuchsia-400/30 to-cyan-400/40"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -6, rotate: -0.9 }}
+            >
+              <div className="relative rounded-2xl h-full w-full bg-white/[0.06] backdrop-blur-md border border-white/10 shadow-2xl overflow-hidden">
+                {/* playful gradient blob */}
+                <motion.div
+                  aria-hidden
+                  className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full blur-3xl"
+                  style={{ background: 'radial-gradient(closest-side, rgba(168,85,247,0.25), rgba(0,0,0,0))' }}
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <div className="p-6 lg:p-8 text-left relative z-10">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center ring-1 ring-white/10">
+                        <Eye size={20} className="text-white" />
+                      </div>
+                      <h3 className="text-xl lg:text-2xl font-semibold text-white tracking-tight">Vizyon</h3>
+                    </div>
+                    <span className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-gradient-to-r from-violet-500/30 to-fuchsia-500/30 text-white/90 ring-1 ring-white/10">Gelecek</span>
+                  </div>
+                  <div className="h-0.5 w-12 bg-gradient-to-r from-violet-400/80 to-fuchsia-400/80 rounded-full mb-4 group-hover:w-16 transition-all"></div>
+                  <p className="text-white/90 leading-relaxed text-base lg:text-lg">
+                    Bireylerin potansiyellerini keşfederek global ölçekte kariyerlerini hızlandırmalarına ilham veren, yenilikçi ve sürdürülebilir bir topluluk ekosistemi yaratmak.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
 
-          </motion.blockquote>
+            {/* Misyon Card */}
+            <motion.div
+              className="group relative rounded-2xl p-[1px] bg-gradient-to-r from-cyan-400/440 via-sky-400/30 to-emerald-400/40"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -6, rotate: 0.9 }}
+            >
+              <div className="relative rounded-2xl h-full w-full bg-white/[0.06] backdrop-blur-md border border-white/10 shadow-2xl overflow-hidden">
+                {/* playful gradient blob */}
+                <motion.div
+                  aria-hidden
+                  className="pointer-events-none absolute -bottom-10 -left-10 w-40 h-40 rounded-full blur-3xl"
+                  style={{ background: 'radial-gradient(closest-side, rgba(34,211,238,0.25), rgba(0,0,0,0))' }}
+                  animate={{ scale: [1, 1.06, 1], opacity: [0.6, 0.9, 0.6] }}
+                  transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <div className="p-6 lg:p-8 text-left relative z-10">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center ring-1 ring-white/10">
+                        <Target size={20} className="text-white" />
+                      </div>
+                      <h3 className="text-xl lg:text-2xl font-semibold text-white tracking-tight">Misyon</h3>
+                    </div>
+                    <span className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-gradient-to-r from-cyan-500/30 to-emerald-500/30 text-white/90 ring-1 ring-white/10">Hedef</span>
+                  </div>
+                  <div className="h-0.5 w-12 bg-gradient-to-r from-cyan-400/80 to-emerald-400/80 rounded-full mb-4 group-hover:w-16 transition-all"></div>
+                  <p className="text-white/90 leading-relaxed text-base lg:text-lg">
+                    Profesyonellere ve girişimcilere; networking, yetkinlik geliştirme, mentorluk ve kariyer fırsatları sunarak, onların hem kişisel hem de mesleki yolculuklarında güvenilir bir yol arkadaşı olmak.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
 
           {/* Customer Info */}
           <motion.div
@@ -80,32 +146,7 @@ export default function CustomerSpotlight() {
 
           </motion.div>
 
-          {/* Additional Stats */}
-          <motion.div
-            className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { label: "Employees Managed", value: "150+" },
-              { label: "Time Saved", value: "60%" },
-              { label: "Compliance Rate", value: "100%" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-white/80 text-sm">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+          
         </motion.div>
       </div>
 
