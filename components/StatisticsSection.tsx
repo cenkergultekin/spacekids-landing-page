@@ -12,25 +12,25 @@ export default function StatisticsSection() {
   const stats = [
     {
       value: 89,
-      label: "Talent retention",
+      label: "Takımı Elinde Tutma",
       icon: Users,
       color: "from-blue-500 to-blue-600"
     },
     {
       value: 85,
-      label: "Employee engagement",
+      label: "Üye Etkileşimi",
       icon: TrendingUp,
       color: "from-green-500 to-green-600"
     },
     {
       value: 81,
-      label: "Time saved",
+      label: "Zaman Tasarrufu",
       icon: Clock,
       color: "from-purple-500 to-purple-600"
     },
     {
       value: 42,
-      label: "Cost reduction",
+      label: "Maliyet Tasarrufu",
       icon: Award,
       color: "from-orange-500 to-orange-600"
     }
@@ -73,10 +73,10 @@ export default function StatisticsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Proven Results
+            Kanıtlanmış Başarılar
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            See how Employment Hero is transforming workplaces around the world
+           Platformumuzun toplulukları ve öğrenme deneyimlerini dünyada nasıl dönüştürdüğünü keşfedin.
           </p>
         </motion.div>
 
@@ -131,16 +131,16 @@ export default function StatisticsSection() {
           transition={{ duration: 0.8, delay: 1.5 }}
         >
           <p className="text-white/70 text-lg mb-6">
-            Based on data from 200,000+ businesses using Employment Hero
+            200.000’den fazla işletmenin verilerine dayanmaktadır.
           </p>
           
           {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center items-center gap-8">
             {[
-              "ISO 27001 Certified",
-              "GDPR Compliant", 
-              "SOC 2 Type II",
-              "200,000+ Users"
+              "ISO 27001 Sertifikalı",
+              "GDPR Uyumlu", 
+              "SOC 2 Tip II",
+              "200.000+ Kullanıcı"
             ].map((indicator, index) => (
               <motion.div
                 key={index}
@@ -167,7 +167,7 @@ export default function StatisticsSection() {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            Get Your Free Trial
+            Ücretsiz Deneyin
           </motion.button>
         </motion.div>
       </div>
