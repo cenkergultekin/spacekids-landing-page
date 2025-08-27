@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Zap, Play } from 'lucide-react'
 import Ballpit from './ui/HeroBalls'
+import BlurText from './ui/HeroTitle'
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -71,20 +72,19 @@ export default function HeroSection() {
 
             {/* Center Content */}
             <div className="text-center max-w-5xl mx-auto px-20 lg:px-32">
-              {/* Main Headline */}
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Sky rocket your{' '}
-                <span className="relative">
-                  <Zap className="inline-block text-yellow-500 w-8 h-8 md:w-12 md:h-12 -mt-1 md:-mt-2" />
-                  career
-                </span>
-              </motion.h1>
-
+              {/* Main Headline with single BlurText including Zap icon */}
+              <BlurText
+                as="h1"
+                className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight justify-center"
+                elements={[
+                  'Sky', ' ', 'rocket', ' ', 'your', ' ',
+                  <span key="zap" className="relative inline-flex items-center"><Zap className="inline-block text-yellow-500 w-8 h-8 md:w-12 md:h-12 -mt-1 md:-mt-2" /></span>,
+                  ' ', 'career'
+                ]}
+                direction="top"
+                delay={120}
+              />
+            
               {/* Subheading */}
               <motion.p 
                 className="text-base md:text-lg text-gray-600 mb-6 max-w-2xl mx-auto"
