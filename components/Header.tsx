@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const menuItems = ['Businesses', 'Partners', 'Employees', 'Job Seekers']
+  const menuItems = ['İşletme', 'Ortaklar', 'Çalışanlar', 'SSS']
 
   return (
     <motion.header 
@@ -50,7 +50,7 @@ export default function Header() {
                whileHover={{ scale: 1.05 }}
              >
                <User size={20} />
-               <span className="text-sm font-medium">Login</span>
+               <span className="text-sm font-medium">Giriş yapın</span>
              </motion.button>
            </div>
 
@@ -85,7 +85,7 @@ export default function Header() {
                              <div className="flex items-center space-x-4 px-3 py-2">
                  <button className="flex items-center space-x-2 text-gray-700">
                    <User size={20} />
-                   <span className="text-sm">Login</span>
+                   <span className="text-sm">Giriş yapın</span>
                  </button>
                </div>
             </div>

@@ -41,7 +41,7 @@ export default function HeroSection() {
                     <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
                       <span className="text-blue-600 font-bold text-xs">👩</span>
                     </div>
-                    <p className="text-gray-600 text-xs font-medium">Professional</p>
+                    <p className="text-gray-600 text-xs font-medium">Profesyonel</p>
                   </div>
                 </div>
                 <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">
@@ -61,7 +61,7 @@ export default function HeroSection() {
                     <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
                       <span className="text-green-600 font-bold text-xs">🌾</span>
                     </div>
-                    <p className="text-gray-600 text-xs font-medium">Agriculture</p>
+                    <p className="text-gray-600 text-xs font-medium">Çalışmalar</p>
                   </div>
                 </div>
                 <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">
@@ -77,9 +77,9 @@ export default function HeroSection() {
                 as="h1"
                 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight justify-center"
                 elements={[
-                  'Sky', ' ', 'rocket', ' ', 'your', ' ',
+                  'Kariyerini', ' ', 'hızla', ' ', 'yükselt', ' ',
                   <span key="zap" className="relative inline-flex items-center"><Zap className="inline-block text-yellow-500 w-8 h-8 md:w-12 md:h-12 -mt-1 md:-mt-2" /></span>,
-                  ' ', 'career'
+                  ' '
                 ]}
                 direction="top"
                 delay={120}
@@ -110,7 +110,7 @@ export default function HeroSection() {
                     <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
                       <span className="text-orange-600 font-bold text-xs">👷</span>
                     </div>
-                    <p className="text-gray-600 text-xs font-medium">Construction</p>
+                    <p className="text-gray-600 text-xs font-medium">Yapı</p>
                   </div>
                 </div>
                 <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">
@@ -130,7 +130,7 @@ export default function HeroSection() {
                     <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
                       <span className="text-pink-600 font-bold text-xs">🛍️</span>
                     </div>
-                    <p className="text-gray-600 text-xs font-medium">Retail</p>
+                    <p className="text-gray-600 text-xs font-medium">Başarılar</p>
                   </div>
                 </div>
                 <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">

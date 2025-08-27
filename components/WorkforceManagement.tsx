@@ -12,51 +12,51 @@ export default function WorkforceManagement() {
 
   const features = [
     {
-      title: 'Hiring',
+      title: 'Yeni Katılımcılar',
       blurb:
-        "Skip the job ads and jump straight to shortlists of matched candidates. Cut hours of screening time and slash thousands from your recruitment budget with our all‑in‑one solution.",
+        "İş ilanlarını atlayın, topluluk içindeki eğitim ve kaynaklara hızlıca erişin. Yeni arkadaşlar edinin, yeteneklerinizi geliştirin ve birlikte öğrenmenin gücünü keşfedin.",
       image:
         'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'All-in-one HR software',
+      title: 'Hepsi Bir Arada İK Platformu',
       blurb:
-        'Everything you need in one place – from onboarding and leave to performance and reporting.',
+        'Tüm ihtiyaçlarınız tek bir yerde – yeni katılımcı rehberlerinden eğitim takibi, performans değerlendirmesi ve raporlamaya kadar.',
       image:
         'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Intelligent Payroll',
+      title: 'Akıllı Maaş Yönetimi',
       blurb:
-        'Automated calculations, compliant payslips and smart insights with zero fuss.',
+        'Otomatik hesaplamalar, uyumlu bordrolar ve akıllı bilgiler – zahmetsiz ve hızlı.',
       image:
         'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Employee Experience',
+      title: 'Çalışan Deneyimi',
       blurb:
-        'Give teams delightful tools for comms, feedback and recognition to keep engagement high.',
+        'Takımlara iletişim, geri bildirim ve takdir için keyifli araçlar sunun; bağlılığı yüksek tutun.',
       image:
         'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Scheduling',
+      title: 'Planlama',
       blurb:
-        'Build smart shift plans in minutes. Balance coverage, availability and labor costs automatically.',
+        'Akıllı programları dakikalar içinde oluşturun. Katılım, uygunluk ve kaynak kullanımını otomatik dengeleyin.',
       image:
         'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Benefits',
+      title: 'Yan Haklar',
       blurb:
-        'Centralize health, retirement and perks. Enroll, track eligibility and keep teams informed.',
+        'Sağlık, emeklilik ve avantajları tek bir yerde toplayın. Kaydolun, uygunluğu takip edin ve topluluğu bilgilendirin.',
       image:
         'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop',
     },
     {
-      title: 'Time Tracking',
+      title: 'Zaman Takibi',
       blurb:
-        'Accurate time entries from web or mobile. Approvals, overtime rules and project costing built in.',
+        'Web veya mobil üzerinden doğru zaman kayıtları tutun. Onaylar, fazla mesai kuralları ve proje maliyetlendirmesi entegre olarak gelir.',
       image:
         'https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1600&auto=format&fit=crop',
     },
@@ -73,10 +73,10 @@ export default function WorkforceManagement() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Workforce Management
+            İnsan Kaynakları Yönetimi
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Streamline your HR operations with our comprehensive workforce management platform
+            Kapsamlı platformumuzla İK süreçlerinizi kolaylaştırın
           </p>
         </motion.div>
 

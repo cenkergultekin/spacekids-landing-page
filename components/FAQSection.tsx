@@ -48,10 +48,10 @@ export default function FAQSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Frequently Asked Questions
+            Sıkça Sorulan Sorular
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get answers to the most common questions about Employment Hero
+            Platformumuzla ilgili en sık sorulan soruların yanıtlarını bulun.
           </p>
         </motion.div>
 
@@ -117,11 +117,10 @@ export default function FAQSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Still have questions?
+            Hâlâ sorularınız mı var?
           </h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Our team is here to help you find the perfect solution for your business.
-            Get in touch with us for personalized assistance.
+            Ekibimiz, topluluğunuza ve öğrenme platformunuza en uygun çözümleri bulmanız için burada. Kişiselleştirilmiş destek için bizimle iletişime geçin.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
@@ -129,14 +128,14 @@ export default function FAQSection() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              Contact Support
+              Destek ile İletişime Geç
             </motion.button>
             <motion.button
               className="border border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              Schedule a Call
+              Görüşme Planla
             </motion.button>
           </div>
         </motion.div>
