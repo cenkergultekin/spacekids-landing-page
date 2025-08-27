@@ -12,32 +12,32 @@ export default function PlatformShowcase() {
   const tooltips = [
     {
       icon: Users,
-      title: "Hiring",
-      description: "Streamlined recruitment process",
+      title: "Yeni Takım Arkadaşları",
+      description: "Topluluğa alımı kolaylaştırın",
       position: "top-1/4 left-1/4"
     },
     {
       icon: FileText,
-      title: "Onboarding",
-      description: "Automated employee onboarding",
+      title: "Başlangıç Rehberi",
+      description: "Otomatik başlangıç süreci",
       position: "top-1/3 right-1/4"
     },
     {
       icon: DollarSign,
-      title: "Payroll",
-      description: "Automated payroll processing",
+      title: "Maaş Takibi",
+      description: "Otomatik maaş yönetimi",
       position: "bottom-1/3 left-1/3"
     },
     {
       icon: TrendingUp,
-      title: "Performance",
-      description: "Performance management tools",
+      title: "Başarı ve Gelişim",
+      description: "Başarı ve gelişimi takip edin",
       position: "bottom-1/4 right-1/3"
     },
     {
       icon: Shield,
-      title: "Benefits",
-      description: "Employee benefits management",
+      title: "Ek Faydalar",
+      description: "Yan haklar yönetimi",
       position: "top-1/2 left-1/2"
     }
   ]
@@ -53,10 +53,10 @@ export default function PlatformShowcase() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            See the platform in action
+            Platformu keşfet
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience the power of our comprehensive employment management platform
+            Birlikte çalışmanın ve kariyerini yönetmenin gücünü deneyimle
           </p>
         </motion.div>
 
@@ -73,7 +73,7 @@ export default function PlatformShowcase() {
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center space-x-4">
                 <div className="w-8 h-8 bg-primary-600 rounded-lg"></div>
-                <h3 className="text-lg font-semibold text-gray-900">Employment Hero Dashboard</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Kariyer ve İş Takip Paneli</h3>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -88,7 +88,7 @@ export default function PlatformShowcase() {
               <div className="lg:col-span-1">
                 <div className="bg-white rounded-lg p-4 shadow-sm">
                   <div className="space-y-3">
-                    {['Hiring', 'Onboarding', 'Payroll', 'Performance', 'Benefits'].map((item, index) => (
+                    {['Yeni Takım Arkadaşları', 'Başlangıç Rehberi', 'Maaş Takibi', 'Başarı ve Gelişim', 'Ek Faydalar'].map((item, index) => (
                       <div key={index} className="flex items-center space-x-3 p-2 rounded hover:bg-gray-50">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
                         <span className="text-sm text-gray-700">{item}</span>
@@ -103,7 +103,7 @@ export default function PlatformShowcase() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Candidates Card */}
                   <div className="bg-white rounded-lg p-6 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-4">Candidates</h4>
+                    <h4 className="font-semibold text-gray-900 mb-4">Potansiyel Takım Üyeleri</h4>
                     <div className="space-y-3">
                       {[1, 2, 3].map((i) => (
                         <div key={i} className="flex items-center space-x-3">
@@ -119,7 +119,7 @@ export default function PlatformShowcase() {
 
                   {/* Job Ads Card */}
                   <div className="bg-white rounded-lg p-6 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-4">Job Ads</h4>
+                    <h4 className="font-semibold text-gray-900 mb-4">Fırsatlar</h4>
                     <div className="space-y-3">
                       {[1, 2].map((i) => (
                         <div key={i} className="border border-gray-200 rounded-lg p-3">
