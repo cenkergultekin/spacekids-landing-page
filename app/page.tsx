@@ -14,9 +14,9 @@ export default function Home() {
       <Header />
       <HeroSection />
       <ModernCardsSection />
+      <CustomerSpotlight />
       <PlatformShowcase />
       <WorkforceManagement />
-      <CustomerSpotlight />
       <StatisticsSection />
       <FAQSection />
       <Footer />
