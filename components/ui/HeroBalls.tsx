@@ -815,6 +815,8 @@ interface CreateBallpitReturn {
   spheres: Z;
   setCount: (count: number) => void;
   togglePause: () => void;
+  setPaused: (value: boolean) => void;
+  isPaused: () => boolean;
   dispose: () => void;
 }
 
@@ -837,7 +839,7 @@ function createBallpit(
   const raycaster = new Raycaster();
   const plane = new Plane(new Vector3(0, 0, 1), 0);
   const intersectionPoint = new Vector3();
-  let isPaused = false;
+  let _isPaused = false;
 
   canvas.style.touchAction = "none";
   canvas.style.userSelect = "none";
@@ -865,7 +867,7 @@ function createBallpit(
     threeInstance.scene.add(spheres);
   }
   threeInstance.onBeforeRender = (deltaInfo) => {
-    if (!isPaused) spheres.update(deltaInfo);
+    if (!_isPaused) spheres.update(deltaInfo);
   };
   threeInstance.onAfterResize = (size) => {
     spheres.config.maxX = size.wWidth / 2;
@@ -880,7 +882,13 @@ function createBallpit(
       initialize({ ...spheres.config, count });
     },
     togglePause() {
-      isPaused = !isPaused;
+      _isPaused = !_isPaused;
+    },
+    setPaused(value: boolean) {
+      _isPaused = !!value;
+    },
+    isPaused() {
+      return _isPaused;
     },
     dispose() {
       pointerData.dispose?.();
@@ -892,12 +900,14 @@ function createBallpit(
 interface BallpitProps {
   className?: string;
   followCursor?: boolean;
+  paused?: boolean;
   [key: string]: any;
 }
 
 const Ballpit: React.FC<BallpitProps> = ({
   className = "",
   followCursor = true,
+  paused = false,
   ...props
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -912,6 +922,11 @@ const Ballpit: React.FC<BallpitProps> = ({
       ...props,
     });
 
+    // Ensure initial paused state applied after creation
+    if (spheresInstanceRef.current) {
+      spheresInstanceRef.current.setPaused(paused);
+    }
+
     return () => {
       if (spheresInstanceRef.current) {
         spheresInstanceRef.current.dispose();
@@ -919,6 +934,13 @@ const Ballpit: React.FC<BallpitProps> = ({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // React to paused prop changes
+  useEffect(() => {
+    if (spheresInstanceRef.current) {
+      spheresInstanceRef.current.setPaused(paused);
+    }
+  }, [paused]);
 
   return <canvas className={`${className} w-full h-full`} ref={canvasRef} />;
 };

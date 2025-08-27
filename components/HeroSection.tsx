@@ -1,13 +1,15 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import { Zap, Play } from 'lucide-react'
+import { useRef, useState, useEffect } from 'react'
+import { Zap, Play, Pause } from 'lucide-react'
 import Ballpit from './ui/HeroBalls'
 import BlurText from './ui/HeroTitle'
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
+  const [paused, setPaused] = useState(false)
+  const [isMdUp, setIsMdUp] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
@@ -16,12 +18,41 @@ export default function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
 
+  // Only enable background animation on >= md (768px)
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    const update = () => setIsMdUp(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Background Ballpit canvas */}
-      <div className="absolute inset-0">
-        <Ballpit className="w-full h-full" followCursor={false} />
-      </div>
+      {/* Background Ballpit canvas - only render on md and up */}
+      {isMdUp && (
+        <div className="absolute inset-0">
+          <Ballpit className="w-full h-full" followCursor={false} paused={paused} />
+        </div>
+      )}
+      {/* Animation Toggle Button (fixed) - only show on md and up */}
+      {isMdUp && (
+        <button
+          type="button"
+          aria-label={paused ? 'Animasyonu başlat' : 'Animasyonu durdur'}
+          onClick={() => setPaused((p) => !p)}
+          className="fixed right-4 bottom-4 z-50 inline-flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg border border-gray-200 backdrop-blur px-3 py-3 transition"
+        >
+          {paused ? (
+            <Play className="w-5 h-5 text-gray-700" />
+          ) : (
+            <Pause className="w-5 h-5 text-gray-700" />
+          )}
+          <span className="ml-2 hidden sm:inline text-xs font-medium text-gray-700">
+            {paused ? 'Başlat' : 'Durdur'}
+          </span>
+        </button>
+      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="relative z-10">
 
