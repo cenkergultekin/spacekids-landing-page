@@ -14,11 +14,12 @@ export default function ModernCardsSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Everything employment, all in one place
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 flex items-center justify-center gap-4">
+            Toplulukla öğren, kariyerinde fark yarat
+            <span className="text-4xl">🚀</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From hiring to retirement, we've got every aspect of employment covered.
+            Birlikte öğrenmenin gücüyle kariyer yolculuğunu şekillendir.
           </p>
         </motion.div>
 
@@ -42,7 +43,7 @@ export default function ModernCardsSection() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-green-600 text-2xl">🏢</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Community Support (Topluluk Desteği)</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Topluluk Desteği</h3>
               <p className="text-gray-600 mb-6">
                 •Seninle aynı hedefleri paylaşan insanlarla yan yana. <br />
                 •Paylaş, sor, öğren — çünkü birlikte daha güçlüyüz.
@@ -74,7 +75,7 @@ export default function ModernCardsSection() {
             </div>
 
             <button className="w-full text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-              Learn More →
+              Daha fazla bilgi edin →
             </button>
           </motion.div>
 
@@ -90,7 +91,7 @@ export default function ModernCardsSection() {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-purple-600 text-2xl">👤</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Skill Development (Becerilerini Geliştir)</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Becerilerini Geliştir</h3>
               <p className="text-gray-600 mb-6">
                 •Atölyeler, eğitimler ve kaynaklarla yetkinliklerini artır. <br />
                 •Her gün yeni şeyler öğren, kariyerinde fark yarat..
@@ -122,7 +123,7 @@ export default function ModernCardsSection() {
             </div>
 
             <button className="w-full text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-              Learn More →
+              Daha fazla bilgi edin →
             </button>
           </motion.div>
 
@@ -138,11 +139,10 @@ export default function ModernCardsSection() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-blue-600 text-2xl">🔍</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Career Opportunities (Kariyer Fırsatları)</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Kariyer Fırsatları</h3>
               <p className="text-gray-600 mb-6">
                 •Özel iş ilanları ve proje fırsatlarına erişim.”
                 •Hayalini kurduğun pozisyonlara bir adım daha yaklaş.”
-
               </p>
             </div>
 
@@ -171,7 +171,7 @@ export default function ModernCardsSection() {
             </div>
 
             <button className="w-full text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-              Learn More →
+              Daha fazla bilgi edin →
             </button>
           </motion.div>
         </motion.div>
