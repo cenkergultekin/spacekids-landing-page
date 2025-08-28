@@ -15,7 +15,7 @@ export default function FeatureOverview() {
       icon: Building2,
       description: "Streamline your HR operations with our comprehensive platform. Manage hiring, payroll, and compliance all in one place.",
       image: "Dashboard interface with employee profiles and tasks",
-      color: "from-green-500 to-emerald-600",
+      color: "from-darkBlue-500 to-darkBlue-600",
       delay: 0
     },
     {
@@ -23,7 +23,7 @@ export default function FeatureOverview() {
       icon: Users,
       description: "Access your payslips, request time off, and manage your employment details through our intuitive mobile app.",
       image: "Mobile app interface showing payslips and leave requests",
-      color: "from-primary-500 to-primary-600",
+      color: "from-pink-500 to-pink-600",
       delay: 0.2
     },
     {
@@ -31,7 +31,7 @@ export default function FeatureOverview() {
       icon: Search,
       description: "Find your next opportunity with personalized job alerts and track your application status in real-time.",
       image: "Mobile app interface with job alerts and application status",
-      color: "from-purple-500 to-purple-600",
+      color: "from-neonYellow-500 to-neonYellow-600",
       delay: 0.4
     }
   ]

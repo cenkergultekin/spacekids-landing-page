@@ -12,27 +12,27 @@ export default function StatisticsSection() {
   const stats = [
     {
       value: 89,
-      label: "Takımı Elinde Tutma",
+      label: "Bilgi 1",
       icon: Users,
-      color: "from-blue-500 to-blue-600"
+      color: "from-darkBlue-500 to-darkBlue-600"
     },
     {
       value: 85,
-      label: "Üye Etkileşimi",
+      label: "Bilgi 2",
       icon: TrendingUp,
-      color: "from-green-500 to-green-600"
+      color: "from-neonYellow-500 to-neonYellow-600"
     },
     {
       value: 81,
-      label: "Zaman Tasarrufu",
+      label: "Bilgi 3",
       icon: Clock,
-      color: "from-purple-500 to-purple-600"
+      color: "from-pink-500 to-pink-600"
     },
     {
       value: 42,
-      label: "Maliyet Tasarrufu",
+      label: "Bilgi 4",
       icon: Award,
-      color: "from-orange-500 to-orange-600"
+      color: "from-primary-500 to-primary-600"
     }
   ]
 
@@ -60,11 +60,11 @@ export default function StatisticsSection() {
   }, [isInView, stats])
 
   return (
-    <section ref={ref} className="py-20 relative overflow-hidden">
+    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 gradient-bg"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
         {/* Section Title */}
         <motion.div 
           className="text-center mb-16"
@@ -73,10 +73,10 @@ export default function StatisticsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Kanıtlanmış Başarılar
+            Sertifikalar
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-           Platformumuzun toplulukları ve öğrenme deneyimlerini dünyada nasıl dönüştürdüğünü keşfedin.
+           Öğrenme deneyiminizi sektörde geçerli sertifikalarla destekleyin.
           </p>
         </motion.div>
 
@@ -131,16 +131,16 @@ export default function StatisticsSection() {
           transition={{ duration: 0.8, delay: 1.5 }}
         >
           <p className="text-white/70 text-lg mb-6">
-            200.000’den fazla işletmenin verilerine dayanmaktadır.
+            Ek bilgi alanıdır. Test 1-2-3
           </p>
           
           {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center items-center gap-8">
             {[
-              "ISO 27001 Sertifikalı",
-              "GDPR Uyumlu", 
-              "SOC 2 Tip II",
-              "200.000+ Kullanıcı"
+              "X Onaylı",
+              "Y Uyumlu", 
+              "Z Destekli",
+              "xxx.xxx+ Kullanıcı"
             ].map((indicator, index) => (
               <motion.div
                 key={index}
@@ -162,13 +162,6 @@ export default function StatisticsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 2.2 }}
         >
-          <motion.button
-            className="bg-white text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Ücretsiz Deneyin
-          </motion.button>
         </motion.div>
       </div>
 

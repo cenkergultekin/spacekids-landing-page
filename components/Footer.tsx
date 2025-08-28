@@ -26,19 +26,19 @@ export default function Footer() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary-600/10 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-indigo-600/10 blur-3xl" />
+          <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-darkBlue-500/10 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-primary-500/10 blur-3xl" />
 
           <h3 className="text-2xl font-semibold mb-6">İletişime Geçin</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <motion.a
               href="mailto:sedanurceylan@dreamdatalabs.com"
-              className="group flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/40 p-4 hover:border-primary-600 hover:bg-gray-800/60 transition-colors"
+              className="group flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/40 p-4 hover:border-darkBlue-500 hover:bg-gray-800/60 transition-colors"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600/20 text-primary-400">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-darkBlue-500/20 text-darkBlue-400">
                 <Mail size={18} />
               </span>
               <div>
@@ -49,12 +49,12 @@ export default function Footer() {
 
             <motion.a
               href="tel:+15551234567"
-              className="group flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/40 p-4 hover:border-primary-600 hover:bg-gray-800/60 transition-colors"
+              className="group flex items-center gap-3 rounded-xl border border-gray-800 bg-gray-800/40 p-4 hover:border-darkBlue-500 hover:bg-gray-800/60 transition-colors"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.6, delay: 0.25 }}
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600/20 text-primary-400">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-darkBlue-500/20 text-darkBlue-400">
                 <Phone size={18} />
               </span>
               <div>
@@ -69,7 +69,7 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.6, delay: 0.35 }}
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600/20 text-primary-400">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-darkBlue-500/20 text-darkBlue-400">
                 <MapPin size={18} />
               </span>
               <div>
@@ -85,7 +85,7 @@ export default function Footer() {
               <motion.a
                 key={index}
                 href={social.href}
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600/80 transition-colors"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-darkBlue-500/80 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, scale: 0 }}
