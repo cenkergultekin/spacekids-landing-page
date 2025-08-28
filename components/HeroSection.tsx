@@ -3,8 +3,13 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { Zap, Play, Pause } from 'lucide-react'
+import Image from 'next/image'
 import Ballpit from './ui/HeroBalls'
 import BlurText from './ui/HeroTitle'
+import sincap1 from '@/images/sincap-1.webp'
+import sincap2 from '@/images/sincap-2.webp'
+import sincap3 from '@/images/sincap-3.webp'
+import sincap4 from '@/images/sincap-4.webp'
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -59,7 +64,7 @@ export default function HeroSection() {
           {/* Main Content Container */}
           <div className="relative flex items-center justify-center mb-8">
             {/* Left Side Images */}
-            <div className="absolute left-0 lg:left-0 top-1/2 transform -translate-y-1/2 space-y-4 w-16 lg:w-20">
+            <div className="absolute left-0 lg:left-0 top-1/2 transform -translate-y-1/2 space-y-4 w-24 lg:w-28">
               {/* Top Left - Woman on beach */}
               <motion.div 
                 className="relative rounded-lg border border-gray-200 overflow-hidden shadow-sm"
@@ -67,17 +72,11 @@ export default function HeroSection() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <div className="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
-                      <span className="text-blue-600 font-bold text-xs">👩</span>
-                    </div>
-                    <p className="text-gray-600 text-xs font-medium">Profesyonel</p>
-                  </div>
+                <div className="aspect-square relative">
+                  <Image src={sincap1} alt="Profesyonel" fill className="object-cover" sizes="112px" priority />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">i</span>
-                </div>
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
               </motion.div>
 
               {/* Bottom Left - Agriculture */}
@@ -87,17 +86,11 @@ export default function HeroSection() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
-                      <span className="text-green-600 font-bold text-xs">🌾</span>
-                    </div>
-                    <p className="text-gray-600 text-xs font-medium">Çalışmalar</p>
-                  </div>
+                <div className="aspect-square relative">
+                  <Image src={sincap2} alt="Çalışmalar" fill className="object-cover" sizes="112px" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">i</span>
-                </div>
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
               </motion.div>
             </div>
 
@@ -128,7 +121,7 @@ export default function HeroSection() {
             </div>
 
             {/* Right Side Images */}
-            <div className="absolute right-0 lg:right-0 top-1/2 transform -translate-y-1/2 space-y-4 w-16 lg:w-20">
+            <div className="absolute right-0 lg:right-0 top-1/2 transform -translate-y-1/2 space-y-4 w-24 lg:w-28">
               {/* Top Right - Construction workers */}
               <motion.div 
                 className="relative rounded-lg border border-gray-200 overflow-hidden shadow-sm"
@@ -136,17 +129,11 @@ export default function HeroSection() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
-                <div className="aspect-square bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
-                      <span className="text-orange-600 font-bold text-xs">👷</span>
-                    </div>
-                    <p className="text-gray-600 text-xs font-medium">Yapı</p>
-                  </div>
+                <div className="aspect-square relative">
+                  <Image src={sincap3} alt="Yapı" fill className="object-cover" sizes="112px" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">i</span>
-                </div>
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
               </motion.div>
 
               {/* Bottom Right - Retail */}
@@ -156,17 +143,11 @@ export default function HeroSection() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <div className="aspect-square bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center mx-auto mb-1 shadow-md">
-                      <span className="text-pink-600 font-bold text-xs">🛍️</span>
-                    </div>
-                    <p className="text-gray-600 text-xs font-medium">Başarılar</p>
-                  </div>
+                <div className="aspect-square relative">
+                  <Image src={sincap4} alt="Başarılar" fill className="object-cover" sizes="112px" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">i</span>
-                </div>
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
               </motion.div>
             </div>
           </div>
