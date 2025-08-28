@@ -13,11 +13,11 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #6C2BD9 0%, #A855F7 100%);
+  background: linear-gradient(135deg, #343c92 0%, #6b34d9 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #6C2BD9 0%, #A855F7 100%);
+  background: linear-gradient(135deg, #343c92 0%, #6b34d9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -38,10 +38,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c084fc;
+  background: #6b34d9;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a855f7;
+  background: #343c92;
 }

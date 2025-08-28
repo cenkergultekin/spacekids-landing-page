@@ -12,49 +12,63 @@ export default function WorkforceManagement() {
 
   const features = [
     {
-      title: 'Yeni Katılımcılar',
+      title: 'Eğitimler',
       blurb:
         "İş ilanlarını atlayın, topluluk içindeki eğitim ve kaynaklara hızlıca erişin. Yeni arkadaşlar edinin, yeteneklerinizi geliştirin ve birlikte öğrenmenin gücünü keşfedin.",
       image:
         'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Hepsi Bir Arada İK Platformu',
+      title: 'Kariyer Yolları',
       blurb:
         'Tüm ihtiyaçlarınız tek bir yerde – yeni katılımcı rehberlerinden eğitim takibi, performans değerlendirmesi ve raporlamaya kadar.',
       image:
         'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Akıllı Maaş Yönetimi',
+      title: 'Workshop Etkinlikleri',
       blurb:
         'Otomatik hesaplamalar, uyumlu bordrolar ve akıllı bilgiler – zahmetsiz ve hızlı.',
       image:
         'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Çalışan Deneyimi',
+      title: 'İş Fırsatları',
       blurb:
         'Takımlara iletişim, geri bildirim ve takdir için keyifli araçlar sunun; bağlılığı yüksek tutun.',
       image:
         'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Planlama',
+      title: 'K-Coin Fırsatları',
       blurb:
         'Akıllı programları dakikalar içinde oluşturun. Katılım, uygunluk ve kaynak kullanımını otomatik dengeleyin.',
       image:
         'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop',
     },
     {
-      title: 'Yan Haklar',
+      title: 'Sertifikalar',
       blurb:
         'Sağlık, emeklilik ve avantajları tek bir yerde toplayın. Kaydolun, uygunluğu takip edin ve topluluğu bilgilendirin.',
       image:
         'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop',
     },
     {
-      title: 'Zaman Takibi',
+      title: 'Lider Tablosu',
+      blurb:
+        'Web veya mobil üzerinden doğru zaman kayıtları tutun. Onaylar, fazla mesai kuralları ve proje maliyetlendirmesi entegre olarak gelir.',
+      image:
+        'https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1600&auto=format&fit=crop',
+    },
+    {
+      title: 'Notlar',
+      blurb:
+        'Web veya mobil üzerinden doğru zaman kayıtları tutun. Onaylar, fazla mesai kuralları ve proje maliyetlendirmesi entegre olarak gelir.',
+      image:
+        'https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1600&auto=format&fit=crop',
+    },
+    {
+      title: 'Topluluk',
       blurb:
         'Web veya mobil üzerinden doğru zaman kayıtları tutun. Onaylar, fazla mesai kuralları ve proje maliyetlendirmesi entegre olarak gelir.',
       image:
@@ -73,10 +87,10 @@ export default function WorkforceManagement() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            İnsan Kaynakları Yönetimi
+            SpaceKids Akademi
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Kapsamlı platformumuzla İK süreçlerinizi kolaylaştırın
+            SpaceKids ile neler yapabilirsiniz?
           </p>
         </motion.div>
 
@@ -134,7 +148,7 @@ export default function WorkforceManagement() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="relative"
           >
-            <div className="relative w-full aspect-[16/9] lg:aspect-[4/3] rounded-2xl bg-purple-50 overflow-hidden ring-1 ring-black/5">
+                          <div className="relative w-full aspect-[16/9] lg:aspect-[4/3] rounded-2xl bg-primary-50 overflow-hidden ring-1 ring-black/5">
               {features.map((f, i) => (
                 <motion.img
                   key={f.title}
@@ -150,7 +164,7 @@ export default function WorkforceManagement() {
               {(active === -1 ? features[0]?.title === 'Hiring' : features[active]?.title === 'Hiring') && (
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-3">
                   {['19 New','7 In Review','5 Phone Screen','5 Assessment','3'].map((s, idx) => (
-                    <span key={idx} className={`text-xs px-3 py-1 rounded-full shadow-sm ${idx===0? 'bg-purple-700 text-white' : 'bg-white/90 text-gray-700'}`}>{s}</span>
+                    <span key={idx} className={`text-xs px-3 py-1 rounded-full shadow-sm ${idx===0? 'bg-primary-700 text-white' : 'bg-white/90 text-gray-700'}`}>{s}</span>
                   ))}
                 </div>
               )}

@@ -76,7 +76,7 @@ export default function HeroSection() {
                   <Image src={sincap1} alt="Profesyonel" fill className="object-cover" sizes="112px" priority />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-neonYellow-500 rounded-full" />
               </motion.div>
 
               {/* Bottom Left - Agriculture */}
@@ -90,7 +90,7 @@ export default function HeroSection() {
                   <Image src={sincap2} alt="Çalışmalar" fill className="object-cover" sizes="112px" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-neonYellow-500 rounded-full" />
               </motion.div>
             </div>
 
@@ -133,7 +133,7 @@ export default function HeroSection() {
                   <Image src={sincap3} alt="Yapı" fill className="object-cover" sizes="112px" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-neonYellow-500 rounded-full" />
               </motion.div>
 
               {/* Bottom Right - Retail */}
@@ -147,7 +147,7 @@ export default function HeroSection() {
                   <Image src={sincap4} alt="Başarılar" fill className="object-cover" sizes="112px" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
+                <div className="absolute bottom-1 right-1 w-2 h-2 bg-neonYellow-500 rounded-full" />
               </motion.div>
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function HeroSection() {
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-neonYellow-500 rounded-full"></div>
                 </div>
                 <div className="text-white text-sm font-medium">SpaceKids Demo</div>
               </div>

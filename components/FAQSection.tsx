@@ -11,7 +11,7 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "1. …………… nedir?",
+      question: "1. SpaceKids nedir?",
       answer: "………., kariyerini geliştirmek isteyen bireylerin networking, eğitim, mentorluk ve topluluk desteği ile kendilerini ileriye taşıyabilecekleri bir platformdur."
 
     },
@@ -24,7 +24,7 @@ export default function FAQSection() {
       answer: "Bazı temel özellikler ücretsizdir. Gelişmiş özellikler ve özel fırsatlar için farklı üyelik paketleri sunuyoruz."
     },
     {
-      question: "4. …………….’te hangi imkanlardan faydalanabilirim?",
+      question: "4. SpaceKids'te hangi imkanlardan faydalanabilirim?",
       answer: "Eğitim içerikleri, networking etkinlikleri, mentorluk desteği, iş ilanları ve proje fırsatlarına erişebilirsiniz."
     },
     {
@@ -38,8 +38,8 @@ export default function FAQSection() {
   }
 
   return (
-    <section ref={ref} className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="min-h-screen flex items-center justify-center bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section Title */}
         <motion.div
           className="text-center mb-16"
@@ -108,37 +108,6 @@ export default function FAQSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Additional Help */}
-        <motion.div
-          className="mt-16 text-center bg-gray-50 rounded-2xl p-8"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Hâlâ sorularınız mı var?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Ekibimiz, topluluğunuza ve öğrenme platformunuza en uygun çözümleri bulmanız için burada. Kişiselleştirilmiş destek için bizimle iletişime geçin.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              className="bg-gradient-to-r from-primary-600 to-primary-500 text-white px-8 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Destek ile İletişime Geç
-            </motion.button>
-            <motion.button
-              className="border border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-medium hover:bg-primary-50 transition-colors duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Görüşme Planla
-            </motion.button>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

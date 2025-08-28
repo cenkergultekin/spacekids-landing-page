@@ -16,8 +16,8 @@ export default function Home() {
       <HeroSection />
       <ModernCardsSection />
       <CustomerSpotlight />
-      <ScrollDemoSection />
       <WorkforceManagement />
+      <ScrollDemoSection />
       <StatisticsSection />
       <FAQSection />
       <Footer />
