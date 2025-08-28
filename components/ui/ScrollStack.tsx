@@ -202,7 +202,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
                               <div className="flex items-center gap-1.5">
                                 <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
                                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                                <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
+                                <span className="w-2.5 h-2.5 rounded-full bg-neonYellow-500" />
                               </div>
                               <div className="text-[10px] sm:text-xs text-gray-500 font-medium truncate max-w-[60%]">
                                 app.spacekids.dev/{(card.title || "").toLowerCase().replace(/\s+/g, "-")}

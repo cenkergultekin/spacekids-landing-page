@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 
 export default function ModernCardsSection() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center justify-center bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -31,148 +31,94 @@ export default function ModernCardsSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {/* FOR BUSINESSES Card */}
+          {/* Topluluk Desteği Card */}
           <motion.div
-            className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
+            className="group relative rounded-2xl p-[2px] bg-gradient-to-br from-darkBlue-400 via-darkBlue-500 to-primary-500 hover:shadow-2xl transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
+            whileHover={{ y: -8, scale: 1.02 }}
           >
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-green-600 text-2xl">🏢</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Topluluk Desteği</h3>
-              <p className="text-gray-600 mb-6">
-                •Seninle aynı hedefleri paylaşan insanlarla yan yana. <br />
-                •Paylaş, sor, öğren — çünkü birlikte daha güçlüyüz.
-              </p>
-            </div>
-
-            {/* Generic Dashboard Mockup */}
-            <div className="bg-gray-50 rounded-xl p-4 mb-6">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-3/4"></div>
-                  </div>
+            <div className="relative rounded-2xl h-full w-full bg-white/95 backdrop-blur-sm border border-white/20 shadow-xl overflow-hidden">
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-darkBlue-500/10 via-transparent to-primary-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="p-6 lg:p-8 text-center relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-darkBlue-500 to-primary-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-white text-2xl">🏢</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-green-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-1/2"></div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-2/3"></div>
-                  </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Topluluk Desteği</h3>
+                <div className="space-y-3 text-left">
+                  <p className="text-gray-600 leading-relaxed">
+                    Seninle aynı hedefleri paylaşan insanlarla yan yana.
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    Paylaş, sor, öğren — çünkü birlikte daha güçlüyüz.
+                  </p>
                 </div>
               </div>
             </div>
-
-            <button className="w-full text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-              Daha fazla bilgi edin →
-            </button>
           </motion.div>
 
-          {/* FOR EMPLOYEES Card */}
+          {/* Becerilerini Geliştir Card */}
           <motion.div
-            className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
+            className="group relative rounded-2xl p-[2px] bg-gradient-to-br from-pink-400 via-pink-500 to-neonYellow-400 hover:shadow-2xl transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            whileHover={{ y: -8, scale: 1.02 }}
           >
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-purple-600 text-2xl">👤</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Becerilerini Geliştir</h3>
-              <p className="text-gray-600 mb-6">
-                •Atölyeler, eğitimler ve kaynaklarla yetkinliklerini artır. <br />
-                •Her gün yeni şeyler öğren, kariyerinde fark yarat..
-              </p>
-            </div>
-
-            {/* Generic Mobile App Mockup */}
-            <div className="bg-gray-50 rounded-xl p-4 mb-6">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-2/3"></div>
-                  </div>
+            <div className="relative rounded-2xl h-full w-full bg-white/95 backdrop-blur-sm border border-white/20 shadow-xl overflow-hidden">
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-transparent to-neonYellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="p-6 lg:p-8 text-center relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-neonYellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-white text-2xl">👤</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-green-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-1/2"></div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-3/4"></div>
-                  </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Becerilerini Geliştir</h3>
+                <div className="space-y-3 text-left">
+                  <p className="text-gray-600 leading-relaxed">
+                    Atölyeler, eğitimler ve kaynaklarla yetkinliklerini artır.
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    Her gün yeni şeyler öğren, kariyerinde fark yarat.
+                  </p>
                 </div>
               </div>
             </div>
-
-            <button className="w-full text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-              Daha fazla bilgi edin →
-            </button>
           </motion.div>
 
-          {/* FOR JOB SEEKERS Card */}
+          {/* Kariyer Fırsatları Card */}
           <motion.div
-            className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
+            className="group relative rounded-2xl p-[2px] bg-gradient-to-br from-neonYellow-400 via-primary-400 to-darkBlue-400 hover:shadow-2xl transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
+            whileHover={{ y: -8, scale: 1.02 }}
           >
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-blue-600 text-2xl">🔍</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Kariyer Fırsatları</h3>
-              <p className="text-gray-600 mb-6">
-                •Özel iş ilanları ve proje fırsatlarına erişim.”
-                •Hayalini kurduğun pozisyonlara bir adım daha yaklaş.”
-              </p>
-            </div>
-
-            {/* Generic Job Search Mockup */}
-            <div className="bg-gray-50 rounded-xl p-4 mb-6">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-3/4"></div>
-                  </div>
+            <div className="relative rounded-2xl h-full w-full bg-white/95 backdrop-blur-sm border border-white/20 shadow-xl overflow-hidden">
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-neonYellow-500/10 via-primary-500/10 to-darkBlue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="p-6 lg:p-8 text-center relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-neonYellow-500 to-primary-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-gray-800 text-2xl">🔍</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-green-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-1/2"></div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-purple-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="h-2 bg-gray-300 rounded w-2/3"></div>
-                  </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Kariyer Fırsatları</h3>
+                <div className="space-y-3 text-left">
+                  <p className="text-gray-600 leading-relaxed">
+                    Özel iş ilanları ve proje fırsatlarına erişim.
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    Hayalini kurduğun pozisyonlara bir adım daha yaklaş.
+                  </p>
                 </div>
               </div>
             </div>
-
-            <button className="w-full text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-              Daha fazla bilgi edin →
-            </button>
           </motion.div>
         </motion.div>
       </div>

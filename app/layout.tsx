@@ -1,9 +1,16 @@
 import type { Metadata } from 'next'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'Employment Hero - Leap into the future of work',
-  description: 'Employment OS - Everything employment, all in one place. Trusted by 200,000+ businesses globally.',
+  title: 'SpaceKids - Kariyerini Hızla Yükselt',
+  description: 'SpaceKids ile kariyerini hızla yükselt. Birlikte öğrenmenin gücüyle kariyer yolculuğunu şekillendir.',
 }
 
 export default function RootLayout({
@@ -12,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="tr">
+      <body className={`${montserrat.variable} font-montserrat antialiased`}>
         {children}
       </body>
     </html>

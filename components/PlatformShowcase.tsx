@@ -72,13 +72,13 @@ export default function PlatformShowcase() {
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-primary-600 rounded-lg"></div>
+                <div className="w-8 h-8 bg-darkBlue-500 rounded-lg"></div>
                 <h3 className="text-lg font-semibold text-gray-900">Kariyer ve İş Takip Paneli</h3>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-neonYellow-500 rounded-full"></div>
               </div>
             </div>
 
@@ -90,7 +90,7 @@ export default function PlatformShowcase() {
                   <div className="space-y-3">
                     {['Yeni Takım Arkadaşları', 'Başlangıç Rehberi', 'Maaş Takibi', 'Başarı ve Gelişim', 'Ek Faydalar'].map((item, index) => (
                       <div key={index} className="flex items-center space-x-3 p-2 rounded hover:bg-gray-50">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-darkBlue-500 rounded-full"></div>
                         <span className="text-sm text-gray-700">{item}</span>
                       </div>
                     ))}
@@ -148,7 +148,7 @@ export default function PlatformShowcase() {
                 whileHover={{ scale: 1.1 }}
               >
                 {/* Marker */}
-                <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center shadow-lg cursor-pointer">
+                                  <div className="w-8 h-8 bg-darkBlue-500 rounded-full flex items-center justify-center shadow-lg cursor-pointer">
                   <Plus size={16} className="text-white" />
                 </div>
 
