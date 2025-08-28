@@ -3,6 +3,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Quote, Eye, Target } from 'lucide-react'
+import Image from 'next/image'
+import Squirrel from '../images/Sincap.png'
 
 export default function CustomerSpotlight() {
   const ref = useRef<HTMLDivElement>(null)
@@ -18,6 +20,27 @@ export default function CustomerSpotlight() {
     <section ref={ref} className="py-20 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 gradient-bg"></div>
+
+      {/* Hanging Squirrel - top-right */}
+      <motion.div
+        className="absolute -top-5 right-2 z-20 pointer-events-none select-none"
+        style={{ transformOrigin: 'top center' }}
+        animate={{ rotate: [-4, 4, -4], y: [0, 6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        {/* rope */}
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[2px] h-10 bg-white/50" />
+        <Image
+          src={Squirrel}
+          alt="Sarkılan sincap"
+          className="drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
+          priority
+          sizes="(max-width: 768px) 140px, (max-width: 1024px) 200px, 240px"
+          style={{ height: 'auto', width: 'auto' }}
+          width={240}
+          height={240}
+        />
+      </motion.div>
 
       {/* Parallax Background Icon */}
       <motion.div
