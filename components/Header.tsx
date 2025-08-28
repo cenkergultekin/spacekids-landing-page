@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const menuItems = ['İşletme', 'Ortaklar', 'Çalışanlar', 'SSS']
+  const menuItems = ['Başlangıç', 'Bilgilendirme', 'Akademi', 'Sertifikalar', 'SSS']
 
   return (
     <motion.header 
@@ -23,7 +23,7 @@ export default function Header() {
             className="flex-shrink-0 flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-darkBlue-500 to-primary-500 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-sm">S</span>
             </div>
             <h1 className="text-xl font-bold text-gray-900">spacekids</h1>
@@ -35,7 +35,7 @@ export default function Header() {
               <motion.a
                 key={item}
                 href="#"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
+                className="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
                 whileHover={{ y: -2 }}
               >
                 {item}
@@ -46,7 +46,7 @@ export default function Header() {
                      {/* Right side icons */}
            <div className="hidden md:flex items-center space-x-4">
              <motion.button
-               className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+               className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
                whileHover={{ scale: 1.05 }}
              >
                <User size={20} />
@@ -77,7 +77,7 @@ export default function Header() {
                 <a
                   key={item}
                   href="#"
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
                 >
                   {item}
                 </a>
