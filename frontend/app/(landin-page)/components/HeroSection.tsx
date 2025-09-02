@@ -4,8 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { Zap, Play, Pause } from 'lucide-react'
 import Image from 'next/image'
-import Ballpit from './ui/HeroBalls'
-import BlurText from './ui/HeroTitle'
+import Ballpit from '@/components/ui/HeroBalls'
+import BlurText from '@/components/ui/HeroTitle'
 import underwater from '@/images/underwater01.webp'
 
 export default function HeroSection() {
