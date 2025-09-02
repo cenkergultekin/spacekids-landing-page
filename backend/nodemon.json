@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "server.js",
+    "services",
+    "shared"
+  ],
+  "ext": "js,json",
+  "exec": "node -r dotenv/config server.js"
+}
