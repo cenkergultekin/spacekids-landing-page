@@ -1,4 +1,4 @@
-# Spacekids Landing Page
+# SpaceYouth Landing Page
 
 A modern, responsive SaaS landing page built with Next.js, React, TailwindCSS, and Framer Motion. This project replicates the design and functionality of the Employment Hero website with smooth animations and interactive elements.
 
@@ -57,7 +57,7 @@ A modern, responsive SaaS landing page built with Next.js, React, TailwindCSS, a
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd spacekids
+   cd SpaceYouth
    ```
 
 2. **Install dependencies**
@@ -87,7 +87,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-spacekids/
+SpaceYouth/
 ├── app/
 │   ├── globals.css          # Global styles and Tailwind imports
 │   ├── layout.tsx           # Root layout component

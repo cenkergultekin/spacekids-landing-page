@@ -43,8 +43,8 @@ export default function PlatformShowcase() {
   ]
 
   return (
-    <section ref={ref} className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="relative overflow-hidden py-20 bg-[#2D398F]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div 
           className="text-center mb-16"
@@ -68,12 +68,12 @@ export default function PlatformShowcase() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           {/* Main Dashboard Screenshot */}
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-2xl border border-gray-200">
+          <div className="bg-[#2D398F] rounded-2xl p-8 shadow-2xl border border-gray-200">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center space-x-4">
                 <div className="w-8 h-8 bg-darkBlue-500 rounded-lg"></div>
-                <h3 className="text-lg font-semibold text-gray-900">Kariyer ve İş Takip Paneli</h3>
+                <h2 className="text-3xl font-bold text-white">Kariyer ve İş Takip Paneli</h2>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -91,7 +91,7 @@ export default function PlatformShowcase() {
                     {['Yeni Takım Arkadaşları', 'Başlangıç Rehberi', 'Maaş Takibi', 'Başarı ve Gelişim', 'Ek Faydalar'].map((item, index) => (
                       <div key={index} className="flex items-center space-x-3 p-2 rounded hover:bg-gray-50">
                         <div className="w-2 h-2 bg-darkBlue-500 rounded-full"></div>
-                        <span className="text-sm text-gray-700">{item}</span>
+                        <p className="mt-4 text-lg text-white/80">{item}</p>
                       </div>
                     ))}
                   </div>
@@ -148,7 +148,7 @@ export default function PlatformShowcase() {
                 whileHover={{ scale: 1.1 }}
               >
                 {/* Marker */}
-                                  <div className="w-8 h-8 bg-darkBlue-500 rounded-full flex items-center justify-center shadow-lg cursor-pointer">
+                <div className="w-8 h-8 bg-darkBlue-500 rounded-full flex items-center justify-center shadow-lg cursor-pointer">
                   <Plus size={16} className="text-white" />
                 </div>
 
@@ -159,7 +159,7 @@ export default function PlatformShowcase() {
                       <tooltip.icon size={12} />
                       <span className="font-medium">{tooltip.title}</span>
                     </div>
-                    <div className="mt-1 text-gray-300">{tooltip.description}</div>
+                    <p className="mt-2 text-white/80">{tooltip.description}</p>
                   </div>
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                 </div>

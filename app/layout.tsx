@@ -9,8 +9,8 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'SpaceKids - Kariyerini Hızla Yükselt',
-  description: 'SpaceKids ile kariyerini hızla yükselt. Birlikte öğrenmenin gücüyle kariyer yolculuğunu şekillendir.',
+  title: 'SpaceYouth - Kariyerini Hızla Yükselt',
+  description: 'SpaceYouth ile kariyerini hızla yükselt. Birlikte öğrenmenin gücüyle kariyer yolculuğunu şekillendir.',
 }
 
 export default function RootLayout({

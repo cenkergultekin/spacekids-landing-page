@@ -23,6 +23,7 @@ import {
   ACESFilmicToneMapping,
   Raycaster,
   Plane,
+  DoubleSide,
 } from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { Observer } from "gsap/Observer";
@@ -366,14 +367,19 @@ class W {
     if (config.controlSphere0) {
       startIdx = 1;
       const firstVec = new Vector3().fromArray(positionData, 0);
-      firstVec.lerp(center, 0.1).toArray(positionData, 0);
+      // Follow cursor faster for more responsive interaction
+      firstVec.lerp(center, 0.22).toArray(positionData, 0);
       new Vector3(0, 0, 0).toArray(velocityData, 0);
     }
     for (let idx = startIdx; idx < config.count; idx++) {
       const base = 3 * idx;
       const pos = new Vector3().fromArray(positionData, base);
       const vel = new Vector3().fromArray(velocityData, base);
-      vel.y -= deltaInfo.delta * config.gravity * sizeData[idx];
+      // Buoyancy (rise upward, larger bubbles rise faster)
+      vel.y += deltaInfo.delta * config.gravity * sizeData[idx];
+      // Gentle horizontal drift (reduced noise for more natural trails)
+      vel.x += (Math.random() - 0.5) * 0.001;
+      vel.z += (Math.random() - 0.5) * 0.0007;
       vel.multiplyScalar(config.friction);
       vel.clampLength(0, config.maxVelocity);
       pos.add(vel);
@@ -417,10 +423,13 @@ class W {
         const d = diff.length();
         const sumRadius0 = radius + sizeData[0];
         if (d < sumRadius0) {
-          const correction = diff.normalize().multiplyScalar(sumRadius0 - d);
+          // Stronger push when interacting with controller bubble
+          const correction = diff
+            .normalize()
+            .multiplyScalar((sumRadius0 - d) * 1.25);
           const velCorrection = correction
             .clone()
-            .multiplyScalar(Math.max(vel.length(), 2));
+            .multiplyScalar(Math.max(vel.length(), 3));
           pos.sub(correction);
           vel.sub(velCorrection);
         }
@@ -429,14 +438,16 @@ class W {
         pos.x = Math.sign(pos.x) * (config.maxX - radius);
         vel.x = -vel.x * config.wallBounce;
       }
-      if (config.gravity === 0) {
-        if (Math.abs(pos.y) + radius > config.maxY) {
-          pos.y = Math.sign(pos.y) * (config.maxY - radius);
-          vel.y = -vel.y * config.wallBounce;
-        }
+      // Reset to bottom when reaching the top (bubble pops and re-emerges)
+      if (pos.y + radius > config.maxY) {
+        pos.x = MathUtils.randFloatSpread(2 * config.maxX);
+        pos.y = -config.maxY - radius - Math.random();
+        pos.z = MathUtils.randFloatSpread(2 * config.maxZ);
+        vel.set(0, 0, 0);
       } else if (pos.y - radius < -config.maxY) {
+        // Keep bubbles within bottom bound if pushed down
         pos.y = -config.maxY + radius;
-        vel.y = -vel.y * config.wallBounce;
+        vel.y = Math.abs(vel.y) * config.wallBounce;
       }
       const maxBoundary = Math.max(config.maxZ, config.maxSize);
       if (Math.abs(pos.z) + radius > maxBoundary) {
@@ -514,25 +525,38 @@ class Y extends MeshPhysicalMaterial {
 }
 
 const XConfig = {
-  count: 150,
-  // Colors: Dark Blue, Purple, Neon Yellow, Pink
-  colors: [0x343c92, 0x6b34d9, 0xe6ff3f, 0xff76c9],
+  count: 50,
+  // White bubbles to match Floating Elements
+  colors: [0xffffff],
   ambientColor: 0xffffff,
-  ambientIntensity: 1,
-  lightIntensity: 200,
+  ambientIntensity: 0.6,
+  lightIntensity: 12,
   materialParams: {
-    metalness: 0.5,
-    roughness: 0.5,
-    clearcoat: 1,
-    clearcoatRoughness: 0.15,
+    metalness: 0.0,
+    roughness: 0.02,
+    clearcoat: 0.1,
+    clearcoatRoughness: 0.1,
+    transmission: 1.0,
+    ior: 1.05,
+    thickness: 0.02,
+    attenuationColor: 0xffffff,
+    attenuationDistance: 6.0,
+    transparent: true,
+    opacity: 0.42,
+    // Iridescence for soap-bubble-like film colors (if supported by three version)
+    iridescence: 1.0,
+    iridescenceIOR: 1.3,
+    iridescenceThicknessRange: [100, 400],
+    envMapIntensity: 1.2,
   },
-  minSize: 0.5,
-  maxSize: 1,
-  size0: 1,
-  gravity: 0.03,
-  friction: 0.9975,
-  wallBounce: 0.95,
-  maxVelocity: 0.15,
+  minSize: 0.18,
+  maxSize: 0.45,
+  size0: 0.5,
+  // Buoyancy magnitude (upward acceleration factor)
+  gravity: 0.04,
+  friction: 0.997,
+  wallBounce: 0.9,
+  maxVelocity: 0.28,
   maxX: 5,
   maxY: 5,
   maxZ: 2,
@@ -758,6 +782,25 @@ class Z extends InstancedMesh {
     const envTexture = pmrem.fromScene(roomEnv).texture;
     const geometry = new SphereGeometry();
     const material = new Y({ envMap: envTexture, ...config.materialParams });
+    // Ensure bubble-like transparency/refraction
+    material.transparent = true;
+    material.transmission = 1.0;
+    material.ior = (config.materialParams as any)?.ior ?? 1.05;
+    material.thickness = (config.materialParams as any)?.thickness ?? 0.02;
+    material.opacity = (config.materialParams as any)?.opacity ?? 0.32;
+    material.attenuationColor = new Color(
+      (config.materialParams as any)?.attenuationColor ?? 0xa8d8ff
+    );
+    material.attenuationDistance =
+      (config.materialParams as any)?.attenuationDistance ?? 6.0;
+    // Reflection intensity and iridescence (when supported)
+    (material as any).envMapIntensity = (config.materialParams as any)?.envMapIntensity ?? 2.0;
+    if ('iridescence' in material) {
+      (material as any).iridescence = (config.materialParams as any)?.iridescence ?? 1.0;
+      (material as any).iridescenceIOR = (config.materialParams as any)?.iridescenceIOR ?? 1.3;
+      (material as any).iridescenceThicknessRange = (config.materialParams as any)?.iridescenceThicknessRange ?? [100, 400];
+    }
+    material.side = DoubleSide;
     material.envMapRotation.x = -Math.PI / 2;
     super(geometry, material, config.count);
     this.config = config;
@@ -793,14 +836,18 @@ class Z extends InstancedMesh {
     this.instanceColor.needsUpdate = true;
   }
 
-  update(deltaInfo: { delta: number }) {
+  update(deltaInfo: { delta: number; elapsed?: number }) {
     this.physics.update(deltaInfo);
+    const t = (deltaInfo as any).elapsed ?? 0;
     for (let idx = 0; idx < this.count; idx++) {
       U.position.fromArray(this.physics.positionData, 3 * idx);
       if (idx === 0 && this.config.followCursor === false) {
         U.scale.setScalar(0);
       } else {
-        U.scale.setScalar(this.physics.sizeData[idx]);
+        const baseScale = this.physics.sizeData[idx];
+        // Subtle wobble to mimic water bubble deformation
+        const wobble = 1 + 0.03 * Math.sin(t * 0.8 + idx);
+        U.scale.setScalar(baseScale * wobble);
       }
       U.updateMatrix();
       this.setMatrixAt(idx, U.matrix);

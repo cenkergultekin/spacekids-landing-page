@@ -13,7 +13,14 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #343c92 0%, #6b34d9 100%);
+  /* Ocean-like multi-stop gradient */
+  background: linear-gradient(
+    160deg,
+    #008C9E 0%,
+    #00B7A8 35%,
+    #66D0D9 50%,
+    #284D63 100%
+  );
 }
 
 .gradient-text {
@@ -44,4 +51,37 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #343c92;
+}
+
+/* Fish animation (GPU-friendly) */
+@keyframes swim-ltr {
+  0% { transform: translateX(-20vw); }
+  100% { transform: translateX(120vw); }
+}
+@keyframes swim-rtl {
+  0% { transform: translateX(120vw); }
+  100% { transform: translateX(-20vw); }
+}
+
+.fish-swim {
+  animation-name: var(--anim, swim-ltr);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform: translateZ(0);
+  will-change: transform;
+}
+.fish-swim.rtl { --anim: swim-rtl; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fish-swim { animation: none !important; }
+}
+
+/* Hide scrollbar utility for horizontal sliders */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
