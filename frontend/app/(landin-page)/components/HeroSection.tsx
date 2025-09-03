@@ -2,16 +2,14 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
-import { Zap, Play, Pause } from 'lucide-react'
+import { Zap, Play } from 'lucide-react'
 import Image from 'next/image'
-import Ballpit from '@/components/ui/HeroBalls'
 import BlurText from '@/components/ui/HeroTitle'
 import underwater from '@/images/underwater01.webp'
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLDivElement>(null)
-  const [paused, setPaused] = useState(false)
   const [isMdUp, setIsMdUp] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -59,31 +57,6 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-b from-transparent via-[#2D398F]/80 to-[#2D398F] z-[14]" />
       {/* Feathered shadow for depth */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-b from-transparent via-black/30 to-transparent mix-blend-multiply z-[15]" />
-      
-      {/* Background Ballpit canvas - only render on md and up */}
-      {isMdUp && (
-        <div className="absolute inset-0 z-10">
-          <Ballpit className="w-full h-full" followCursor={false} paused={paused} />
-        </div>
-      )}
-      {/* Animation Toggle Button (fixed) - only show on md and up */}
-      {isMdUp && (
-        <button
-          type="button"
-          aria-label={paused ? 'Animasyonu başlat' : 'Animasyonu durdur'}
-          onClick={() => setPaused((p) => !p)}
-          className="fixed right-4 bottom-4 z-50 inline-flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg border border-gray-200 backdrop-blur px-3 py-3 transition"
-        >
-          {paused ? (
-            <Play className="w-5 h-5 text-gray-700" />
-          ) : (
-            <Pause className="w-5 h-5 text-gray-700" />
-          )}
-          <span className="ml-2 hidden sm:inline text-xs font-medium text-gray-700">
-            {paused ? 'Başlat' : 'Durdur'}
-          </span>
-        </button>
-      )}
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-20">
         <div className="relative z-20">
 

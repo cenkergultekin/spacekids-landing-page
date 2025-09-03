@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { Menu, X, User } from 'lucide-react'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import spaceYouthIcon from '@/images/SpaceYouth.ico'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -24,10 +26,8 @@ export default function Header() {
             className="flex-shrink-0 flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-darkBlue-500 to-primary-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
-            <h1 className="text-xl font-bold text-gray-900">SpaceYouth</h1>
+            <Image src={spaceYouthIcon} alt="SpaceYouth logo" width={32} height={32} className="rounded-md" />
+            <h1 className="text-xl font-bold text-white/90">SpaceYouth</h1>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -36,7 +36,7 @@ export default function Header() {
               <motion.a
                 key={item}
                 href="#"
-                className="text-gray-900 hover:text-primary-600 transition-colors duration-200 font-medium"
+                className="text-white/90 hover:text-[#2D398F] transition-colors duration-200 font-medium"
                 whileHover={{ y: -2 }}
               >
                 {item}
@@ -48,7 +48,7 @@ export default function Header() {
            <div className="hidden md:flex items-center space-x-4">
              <Link href="/login">
                <motion.button
-                 className="flex items-center space-x-2 text-gray-900 hover:text-primary-600 transition-colors duration-200"
+                 className="flex items-center space-x-2 text-white/90 hover:text-[#2D398F] transition-colors duration-200"
                  whileHover={{ scale: 1.05 }}
                >
                  <User size={20} />
