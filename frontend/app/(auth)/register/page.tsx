@@ -6,6 +6,7 @@ import { Eye, EyeOff, Mail, Lock, User, ArrowRight, Sparkles, Home } from 'lucid
 import Image from 'next/image'
 import underwater from '@/images/underwater01.webp'
 import Link from 'next/link'
+import spaceYouthIcon from '@/images/SpaceYouth.ico'
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -113,10 +114,8 @@ export default function RegisterPage() {
           {/* Logo */}
           <div className="flex justify-center mb-3">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-darkBlue-500 to-primary-500 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-sm">S</span>
-              </div>
-              <h1 className="text-xl font-bold text-white">SpaceYouth</h1>
+              <Image src={spaceYouthIcon} alt="SpaceYouth logo" width={40} height={40} className="rounded-md shadow-lg" />
+              <h1 className="text-2xl font-bold text-white">SpaceYouth</h1>
             </div>
           </div>
           
