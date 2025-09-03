@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Menu, X, User } from 'lucide-react'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -45,13 +46,15 @@ export default function Header() {
 
                      {/* Right side icons */}
            <div className="hidden md:flex items-center space-x-4">
-             <motion.button
-               className="flex items-center space-x-2 text-gray-900 hover:text-primary-600 transition-colors duration-200"
-               whileHover={{ scale: 1.05 }}
-             >
-               <User size={20} />
-               <span className="text-sm font-medium">Giriş yapın</span>
-             </motion.button>
+             <Link href="/login">
+               <motion.button
+                 className="flex items-center space-x-2 text-gray-900 hover:text-primary-600 transition-colors duration-200"
+                 whileHover={{ scale: 1.05 }}
+               >
+                 <User size={20} />
+                 <span className="text-sm font-medium">Giriş yapın</span>
+               </motion.button>
+             </Link>
            </div>
 
           {/* Mobile menu button */}
@@ -83,10 +86,12 @@ export default function Header() {
                 </a>
               ))}
                              <div className="flex items-center space-x-4 px-3 py-2">
-                 <button className="flex items-center space-x-2 text-gray-700">
-                   <User size={20} />
-                   <span className="text-sm">Giriş yapın</span>
-                 </button>
+                 <Link href="/login">
+                   <button className="flex items-center space-x-2 text-gray-700">
+                     <User size={20} />
+                     <span className="text-sm">Giriş yapın</span>
+                   </button>
+                 </Link>
                </div>
             </div>
           </motion.div>
