@@ -3,10 +3,9 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Auth route group layout. Keep minimal and isolated from marketing UI.
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#2D398F]">
       {children}
-    </main>
+    </div>
   )
 }
