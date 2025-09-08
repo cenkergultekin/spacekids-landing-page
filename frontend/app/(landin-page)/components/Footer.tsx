@@ -17,15 +17,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer ref={ref} className="relative overflow-hidden bg-[#2D398F] text-white">
-      {/* Background ornaments (brand system) */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* subtle grid */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-        {/* vignette: top darker, fades downwards */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_35%),linear-gradient(to_bottom,rgba(0,0,0,.35),transparent)]" />
-      </div>
-
+    <footer ref={ref} className="relative overflow-hidden text-white">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Contact Card Only */}
         <motion.div

@@ -4,8 +4,6 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
 import Image from 'next/image'
-import mascotL from '@/images/5.png'
-import mascotR from '@/images/6.png'
 
 export default function FAQSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -41,44 +39,7 @@ export default function FAQSection() {
   }
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#2D398F]">
-      {/* Background ornaments (brand system) */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* subtle grid */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-        {/* vignette: darkens downward (top → bottom) */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_35%),linear-gradient(to_bottom,transparent,rgba(0,0,0,.35))]" />
-        
-      </div>
-
-      {/* Left/Right mascots (md+) */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none hidden md:block absolute top-1/2 left-0 -translate-x-6 -translate-y-1/2 z-[8]"
-        initial={{ opacity: 0, x: -30, rotate: -4 }}
-        whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <motion.div animate={{ y: [0, -24, 0, 12, 0] }} transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}>
-          <div className="absolute -inset-4 rounded-3xl bg-white/5 blur-2xl" />
-          <Image src={mascotL} alt="" className="relative w-[220px] lg:w-[280px] h-auto opacity-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.35)] select-none" sizes="(max-width: 1024px) 220px, 280px" />
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        aria-hidden
-        className="pointer-events-none hidden md:block absolute top-1/2 right-0 translate-x-6 -translate-y-1/2 z-[8]"
-        initial={{ opacity: 0, x: 30, rotate: 4 }}
-        whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        <motion.div animate={{ y: [0, -20, 0, 10, 0] }} transition={{ duration: 24, repeat: Infinity, ease: 'easeInOut' }}>
-          <div className="absolute -inset-4 rounded-3xl bg-white/5 blur-2xl" />
-          <Image src={mascotR} alt="" className="relative w-[220px] lg:w-[280px] h-auto opacity-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.35)] select-none scale-x-[-1]" sizes="(max-width: 1024px) 210px, 260px" />
-        </motion.div>
-      </motion.div>
+    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden">
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section Title */}

@@ -1,57 +1,26 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef } from 'react'
-import { Quote, Eye, Target } from 'lucide-react'
+import { Eye, Target } from 'lucide-react'
 import Image from 'next/image'
 import mascot2 from '@/images/2.png'
+import frameTop from '@/images/frametop.png'
 
 export default function CustomerSpotlight() {
   const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0])
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#2D398F]">
-      {/* Background ornaments (matched to ModernCards) */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* subtle grid (match ModernCards) */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-        {/* vignette: top darker, fades downwards */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_35%),linear-gradient(to_bottom,rgba(0,0,0,.35),transparent)]" />
-        {/* top transition to darken boundary (match intensity with ModernCards) */}
-        <div className="absolute top-0 left-0 right-0 " />
-      </div>
+    <section ref={ref} className="relative min-h-[75vh] md:min-h-screen overflow-hidden">
 
-      {/* Elegant corner mascot accent (bottom-left, md+ only) */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none hidden md:block absolute bottom-2 md:bottom-4 left-2 md:left-4 z-[5]"
-        initial={{ opacity: 0, y: 90, rotate: 10 }}
-        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <motion.div
-          className="relative"
-          animate={{ y: [0, -40, 0, 20, 0] }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="absolute -inset-4 rounded-3xl bg-white/5 blur-2xl" />
-          <Image
-            src={mascot2}
-            alt=""
-            priority={false}
-            className="relative w-[200px] lg:w-[240px] xl:w-[280px] h-auto opacity-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.35)] select-none"
-            sizes="(max-width: 1024px) 200px, (max-width: 1280px) 240px, 280px"
-          />
-        </motion.div>
-      </motion.div>
+      {/* Background image */}
+      <Image
+        src={frameTop}
+        alt="Background stars"
+        fill
+        priority
+        className="object-cover object-top -z-10 select-none pointer-events-none"
+      />
 
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
         {/* Section Header */}
