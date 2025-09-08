@@ -4,7 +4,6 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import certificate from '@/images/certificate.jpg'
-import mascot4 from '@/images/4.png'
 
 export default function StatisticsSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -63,40 +62,7 @@ export default function StatisticsSection() {
   }, [])
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#2D398F]">
-      {/* Background ornaments (brand system) */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* subtle grid */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-        {/* vignette: top darker, fades downwards */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_35%),linear-gradient(to_bottom,rgba(0,0,0,.35),transparent)]" />
-        
-      </div>
-
-      {/* Mascot: top-right decorative accent (md+) */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none hidden md:block absolute top-6 right-4 z-[12]"
-        initial={{ opacity: 0, y: -40, rotate: -6 }}
-        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
-      >
-        <motion.div
-          className="relative"
-          animate={{ y: [0, -30, 0, 15, 0] }}
-          transition={{ duration: 26, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="absolute -inset-4 rounded-3xl bg-white/5 blur-2xl" />
-          <Image
-            src={mascot4}
-            alt=""
-            priority={false}
-            className="relative w-[200px] lg:w-[240px] xl:w-[280px] h-auto opacity-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.35)] select-none"
-            sizes="(max-width: 1024px) 200px, (max-width: 1280px) 240px, 280px"
-          />
-        </motion.div>
-      </motion.div>
+    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden">
 
       <div className="w-full max-w-[100rem] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 py-20">
         {/* Section Title */}
