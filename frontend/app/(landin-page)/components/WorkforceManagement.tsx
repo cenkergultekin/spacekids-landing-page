@@ -3,7 +3,6 @@
 import { motion, useScroll } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 import token01 from '@/images/token01.webp'
 import token02 from '@/images/token02.webp'
 import workshop from '@/images/workshop01.webp'
@@ -110,16 +109,7 @@ export default function WorkforceManagement() {
   }
 
   return (
-    <div ref={wrapperRef} className="relative min-h-[300vh] bg-[#2D398F]">
-      {/* Background ornaments (brand system) */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* subtle grid */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-        {/* vignette: darkens downward */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_35%),linear-gradient(to_bottom,transparent,rgba(0,0,0,.35))]" />
-        {/* bottom transition to next section */}
-        <div className="absolute bottom-0 left-0 right-0 " />
-      </div>
+    <div ref={wrapperRef} className="relative min-h-[300vh]">
 
       {/* Sticky full-viewport content; screen stays fixed while scrolling */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative z-10">

@@ -1,142 +1,96 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
-import mascot1 from '@/images/1.png'
+import spaceImg from '../../../images/space.jpg'
+import frameBot from '@/images/framebot.png'
 
 export default function ModernCardsSection() {
-  const container = {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.12 } },
-  }
-  const item = {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  }
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#2D398F]">
-      {/* Background ornaments */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* subtle grid */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-        {/* vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_35%),linear-gradient(to_bottom,transparent,rgba(0,0,0,.35))]" />
-        {/* bottom transition to next section: darken toward boundary */}
-        <div className="absolute bottom-0 left-0 right-0 " />
+    <section className="relative min-h-[75vh] md:min-h-screen overflow-hidden">
+      {/* Background image (bottom frame) */}
+      <Image
+        src={frameBot}
+        alt="Background frame"
+        fill
+        priority
+        className="object-cover object-bottom -z-10 select-none pointer-events-none"
+      />
+      {/* Top Logos Row */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="flex items-center gap-10 md:gap-14">
+          <BrandLogo />
+          <BrandLogo text="LOGO IPSUM" compact />
+          <BrandLogo text="LOGOIPSUM" bars />
+          <BrandLogo text="LOGO IPSUM" pill />
+        </div>
       </div>
 
-      {/* Elegant corner mascot accent (top-right, md+ only) */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none hidden md:block absolute top-2 md:top-4 right-2 md:right-4 z-[5]"
-        initial={{ opacity: 0, y: -90, rotate: -12 }}
-        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <motion.div
-          className="relative"
-          animate={{ y: [0, -40, 0, 20, 0] }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="absolute -inset-4 rounded-3xl bg-white/5 blur-2xl" />
-          <Image
-            src={mascot1}
-            alt=""
-            priority={false}
-            className="relative w-[200px] lg:w-[240px] xl:w-[280px] h-auto opacity-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.35)] select-none"
-            sizes="(max-width: 1024px) 200px, (max-width: 1280px) 240px, 280px"
-          />
-        </motion.div>
-      </motion.div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-12 md:mb-16"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={item}
-        >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/15 text-white text-xs md:text-sm mb-4 backdrop-blur">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Birlikte daha hızlı öğren
+      {/* Main Content */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left: Circular Image with curved text */}
+        <div className="relative mx-auto md:mx-0 w-[320px] h-[320px] sm:w-[360px] sm:h-[360px]">
+          <div className="absolute inset-0 rounded-full ring-4 ring-white/20" />
+          <div className="absolute inset-4 rounded-full overflow-hidden">
+            <Image src={spaceImg} alt="Neowise" fill className="object-cover" priority />
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Toplulukla öğren, kariyerinde fark yarat
+          {/* Curved text around circle */}
+          <svg viewBox="0 0 400 400" className="absolute -inset-6 text-white/90">
+            <defs>
+              <path id="curve" d="M200,200 m-170,0 a170,170 0 1,1 340,0 a170,170 0 1,1 -340,0" />
+            </defs>
+            <text className="font-semibold tracking-[0.2em]" fontSize="16" fill="currentColor">
+              <textPath href="#curve" startOffset="5%">Where Astronomy Meets Infinite Possibilities • </textPath>
+            </text>
+          </svg>
+        </div>
+
+        {/* Right: Text content */}
+        <div className="md:pl-8">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="h-[1px] w-10 bg-white/60" />
+            <span className="uppercase tracking-[0.3em] text-sm text-white/80">About Neowise</span>
+            <span className="h-[1px] flex-1 bg-white/60" />
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight text-white mb-5">
+            Get To Know More
+            <br />
+            About Neowise
           </h2>
-          <p className="text-lg md:text-xl text-slate-200/90 max-w-3xl mx-auto leading-relaxed">
-            Birlikte öğrenmenin gücüyle kariyer yolculuğunu şekillendir.
+          <p className="text-white/80 leading-relaxed max-w-xl mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.
           </p>
-        </motion.div>
-
-        {/* Cards Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={container}
-        >
-          {/* Topluluk Desteği Card */}
-          <motion.div variants={item}
-            className="group relative rounded-2xl p-[1.5px] bg-gradient-to-br from-white/30 via-white/10 to-white/0 hover:from-cyan-400/30 hover:via-emerald-300/20 hover:to-transparent transition-all duration-300">
-            <div className="relative rounded-2xl h-full w-full bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-2xl overflow-hidden">
-              {/* hover glow */}
-              <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(80%_80%_at_50%_0%,rgba(59,130,246,0.15)_0%,transparent_70%)]" />
-              <div className="p-6 lg:p-8 text-center relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
-                  <span className="text-white text-2xl">🏢</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Topluluk Desteği</h3>
-                <div className="space-y-3 text-left">
-                  <p className="text-slate-200/90 leading-relaxed">Seninle aynı hedefleri paylaşan insanlarla yan yana.</p>
-                  <p className="text-slate-200/90 leading-relaxed">Paylaş, sor, öğren — çünkü birlikte daha güçlüyüz.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Becerilerini Geliştir Card */}
-          <motion.div variants={item}
-            className="group relative rounded-2xl p-[1.5px] bg-gradient-to-br from-white/30 via-white/10 to-white/0 hover:from-pink-400/30 hover:via-yellow-300/20 hover:to-transparent transition-all duration-300">
-            <div className="relative rounded-2xl h-full w-full bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-2xl overflow-hidden">
-              <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(80%_80%_at_50%_0%,rgba(244,114,182,0.15)_0%,transparent_70%)]" />
-              <div className="p-6 lg:p-8 text-center relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-pink-500/20">
-                  <span className="text-white text-2xl">👤</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Becerilerini Geliştir</h3>
-                <div className="space-y-3 text-left">
-                  <p className="text-slate-200/90 leading-relaxed">Atölyeler, eğitimler ve kaynaklarla yetkinliklerini artır.</p>
-                  <p className="text-slate-200/90 leading-relaxed">Her gün yeni şeyler öğren, kariyerinde fark yarat.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Kariyer Fırsatları Card */}
-          <motion.div variants={item}
-            className="group relative rounded-2xl p-[1.5px] bg-gradient-to-br from-white/30 via-white/10 to-white/0 hover:from-amber-300/30 hover:via-indigo-300/20 hover:to-transparent transition-all duration-300">
-            <div className="relative rounded-2xl h-full w-full bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-2xl overflow-hidden">
-              <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(80%_80%_at_50%_0%,rgba(250,204,21,0.15)_0%,transparent_70%)]" />
-              <div className="p-6 lg:p-8 text-center relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-indigo-500/20">
-                  <span className="text-white text-2xl">🔍</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Kariyer Fırsatları</h3>
-                <div className="space-y-3 text-left">
-                  <p className="text-slate-200/90 leading-relaxed">Özel iş ilanları ve proje fırsatlarına erişim.</p>
-                  <p className="text-slate-200/90 leading-relaxed">Hayalini kurduğun pozisyonlara bir adım daha yaklaş.</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 rounded-full bg-cyan-500/90 hover:bg-cyan-400 text-white px-6 py-3 font-medium shadow-lg shadow-cyan-500/20 transition-colors"
+          >
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/20">🔭</span>
+            Get To know More
+          </a>
+        </div>
       </div>
     </section>
+  )
+}
+
+function BrandLogo({ text = 'logoipsum', compact = false, bars = false, pill = false }: { text?: string; compact?: boolean; bars?: boolean; pill?: boolean }) {
+  return (
+    <div className={`flex items-center gap-3 ${pill ? 'px-6 py-3 rounded-full ring-1 ring-white/20' : ''}`}>
+      <span className="inline-grid place-items-center h-8 w-8 rounded-full ring-1 ring-white/20 text-white/90">
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 3a7 7 0 1 1-7 7 7 7 0 0 1 7-7Z" />
+        </svg>
+      </span>
+      <span className={`text-white/90 ${compact ? 'tracking-widest' : 'tracking-[0.25em]'} uppercase font-semibold`}>
+        {text}
+      </span>
+      {bars && (
+        <span className="flex items-end gap-0.5 text-white/70">
+          <i className="block h-4 w-0.5 bg-current" />
+          <i className="block h-3 w-0.5 bg-current" />
+          <i className="block h-5 w-0.5 bg-current" />
+        </span>
+      )}
+    </div>
   )
 }
