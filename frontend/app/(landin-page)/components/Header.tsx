@@ -5,7 +5,7 @@ import { Menu, X, User } from 'lucide-react'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import spaceYouthIcon from '@/images/SpaceYouth.ico'
+import spaceYouthIcon from '@/images/1.png'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,21 +13,21 @@ export default function Header() {
   const menuItems = ['Başlangıç', 'Bilgilendirme', 'Akademi', 'Sertifikalar', 'SSS']
 
   return (
-    <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20"
-      initial={{ y: -100 }}
+    <motion.header
+      className={`fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-white/10`}
+      initial={{ y: 0 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.4 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <motion.div 
             className="flex-shrink-0 flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <Image src={spaceYouthIcon} alt="SpaceYouth logo" width={32} height={32} className="rounded-md" />
-            <h1 className="text-xl font-bold text-white/90">SpaceYouth</h1>
+            <Image src={spaceYouthIcon} alt="SpaceYouth logo" width={45} height={45} className="rounded-md" />
+            <h1 className={`relative top-[2px] text-xl font-bold text-white/90`}>SpaceYouth</h1>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -36,7 +36,7 @@ export default function Header() {
               <motion.a
                 key={item}
                 href="#"
-                className="text-white/90 hover:text-[#2D398F] transition-colors duration-200 font-medium"
+                className={`relative text-white/90 font-medium after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-white after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
                 whileHover={{ y: -2 }}
               >
                 {item}
@@ -44,18 +44,18 @@ export default function Header() {
             ))}
           </nav>
 
-                     {/* Right side icons */}
-           <div className="hidden md:flex items-center space-x-4">
-             <Link href="/login">
-               <motion.button
-                 className="flex items-center space-x-2 text-white/90 hover:text-[#2D398F] transition-colors duration-200"
-                 whileHover={{ scale: 1.05 }}
-               >
-                 <User size={20} />
-                 <span className="text-sm font-medium">Giriş yapın</span>
-               </motion.button>
-             </Link>
-           </div>
+          {/* Right side icons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href="/login">
+              <motion.button
+                className={`relative flex items-center space-x-2 text-white/90 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-white after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
+                whileHover={{ scale: 1.05 }}
+              >
+                <User size={20} />
+                <span className={`text-sm font-medium text-white/90`}>Giriş yapın</span>
+              </motion.button>
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -80,25 +80,23 @@ export default function Header() {
                 <a
                   key={item}
                   href="#"
-                  className="block px-3 py-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
+                  className={`relative block px-3 py-2 text-white/90 after:content-[''] after:absolute after:left-3 after:bottom-1 after:h-[2px] after:bg-white after:w-[calc(100%-1.5rem)] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
                 >
                   {item}
                 </a>
               ))}
-                             <div className="flex items-center space-x-4 px-3 py-2">
-                 <Link href="/login">
-                   <button className="flex items-center space-x-2 text-gray-700">
-                     <User size={20} />
-                     <span className="text-sm">Giriş yapın</span>
-                   </button>
-                 </Link>
-               </div>
+              <div className="flex items-center space-x-4 px-3 py-2">
+                <Link href="/login">
+                  <button className={`relative flex items-center space-x-2 text-white/90 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-white after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>
+                    <User size={20} />
+                    <span className={`text-sm text-white/90`}>Giriş yapın</span>
+                  </button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
       </div>
-
-      
     </motion.header>
   )
 }

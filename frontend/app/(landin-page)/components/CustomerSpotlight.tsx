@@ -1,145 +1,97 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import { Eye, Target } from 'lucide-react'
 import Image from 'next/image'
-import mascot2 from '@/images/2.png'
-import frameTop from '@/images/frametop.png'
+import { Eye, Target } from 'lucide-react'
+import imgLeft from '@/images/space.jpg'
+import imgRight from '@/images/saturn.jpg'
+import HoverHighlightText from './HoverHighlightText'
 
 export default function CustomerSpotlight() {
-  const ref = useRef<HTMLDivElement>(null)
-
   return (
-    <section ref={ref} className="relative min-h-[75vh] md:min-h-screen overflow-hidden">
-
-      {/* Background image */}
-      <Image
-        src={frameTop}
-        alt="Background stars"
-        fill
-        priority
-        className="object-cover object-top -z-10 select-none pointer-events-none"
-      />
-
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-12 md:mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/15 text-white text-xs md:text-sm mb-5 backdrop-blur">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Amacımız
+    <section className="relative bg-black py-16 md:py-24">
+      <div className="max-w-[97rem] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-8 mb-12 md:mb-16">
+          <div className="flex md:justify-start">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/5 text-white px-4 py-2 text-sm tracking-wide ring-1 ring-white/10">
+              <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
+              WHY CHOOSE US
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">Vizyon ve Misyonla Büyüyoruz</h2>
-          <p className="text-lg md:text-xl text-slate-200/90 max-w-3xl mx-auto leading-relaxed">Eğitim, mentorluk ve toplulukla ivmelenen bir gelişim yolculuğu.</p>
-        </motion.div>
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-            {/* Vizyon Card */}
-            <motion.div
-              className="group relative rounded-3xl p-[1.5px] bg-gradient-to-r from-white/30 via-white/10 to-transparent"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8, rotate: -1 }}
-            >
-              <div className="relative rounded-3xl h-full w-full bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-2xl overflow-hidden">
-                {/* playful gradient blob */}
-                <motion.div
-                  aria-hidden
-                  className="pointer-events-none absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl"
-                  style={{ background: 'radial-gradient(closest-side, rgba(168,85,247,0.25), rgba(0,0,0,0))' }}
-                  animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                <div className="px-12 py-8 md:px-14 md:py-10 lg:px-16 lg:py-12 text-left relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-white/15 flex items-center justify-center ring-1 ring-white/10">
-                      <Eye size={28} className="text-white" />
-                    </div>
-                    <h3 className="font-semibold text-white tracking-tight text-[clamp(1.75rem,3.2vw,2.5rem)]">Vizyon</h3>
-                  </div>
-                  <div className="h-1 w-24 bg-gradient-to-r from-blue-400/30 to-fuchsia-400/30 rounded-full mb-6 group-hover:w-28 transition-all"></div>
-                  <p className="text-white/90 leading-relaxed text-[clamp(1.125rem,1.6vw,1.375rem)]">
-                    Bireylerin potansiyellerini keşfederek global ölçekte kariyerlerini hızlandırmalarına ilham veren, yenilikçi ve sürdürülebilir bir topluluk ekosistemi yaratmak.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+          <h2 className="md:col-span-2 text-right text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white">
+            WHERE PASSION
+            <br />
+            MEETS THE COSMOS
+          </h2>
+        </div>
 
-            {/* Misyon Card */}
-            <motion.div
-              className="group relative rounded-3xl p-[1.5px] bg-gradient-to-r from-white/30 via-white/10 to-transparent"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8, rotate: 1 }}
-            >
-              <div className="relative rounded-3xl h-full w-full bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-2xl overflow-hidden">
-                {/* playful gradient blob */}
-                <motion.div
-                  aria-hidden
-                  className="pointer-events-none absolute -bottom-12 -left-12 w-48 h-48 rounded-full blur-3xl"
-                  style={{ background: 'radial-gradient(closest-side, rgba(34,211,238,0.25), rgba(0,0,0,0))' }}
-                  animate={{ scale: [1, 1.06, 1], opacity: [0.6, 0.9, 0.6] }}
-                  transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                <div className="px-12 py-8 md:px-14 md:py-10 lg:px-16 lg:py-12 text-left relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-white/15 flex items-center justify-center ring-1 ring-white/10">
-                      <Target size={28} className="text-white" />
-                    </div>
-                    <h3 className="font-semibold text-white tracking-tight text-[clamp(1.75rem,3.2vw,2.5rem)]">Misyon</h3>
-                  </div>
-                  <div className="h-1 w-24 bg-gradient-to-r from-cyan-400/80 to-emerald-400/80 rounded-full mb-6 group-hover:w-28 transition-all"></div>
-                  <p className="text-white/90 leading-relaxed text-[clamp(1.125rem,1.6vw,1.375rem)]">
-                    Profesyonellere ve girişimcilere; networking, yetkinlik geliştirme, mentorluk ve kariyer fırsatları sunarak, onların hem kişisel hem de mesleki yolculuklarında güvenilir bir yol arkadaşı olmak.
-                  </p>
-                </div>
+        {/* Alternating Photo + Text Sections */}
+        <div className="space-y-16 md:space-y-24">
+          {/* Row 1: Image Left, Text Right */}
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+            <div className="relative w-full h-[22rem] md:h-[32rem] rounded-3xl overflow-hidden ring-1 ring-white/10">
+              <Image src={imgLeft} alt="Deep space" fill className="object-cover" priority />
+            </div>
+            <div className="text-white md:pl-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/10 text-sm mb-5">
+                <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
+                Our Vision
               </div>
-            </motion.div>
-          </motion.div>
+              <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                <HoverHighlightText className="block" baseColor="#9ca3af" highlightColor="#ffffff" size={180}>
+                  Guided Stargazing
+                </HoverHighlightText>
+              </h3>
+              <p className="mt-4 text-lg md:text-xl max-w-2xl">
+                <HoverHighlightText className="block" baseColor="#9ca3af" highlightColor="#ffffff" size={180}>
+                  Bireylerin potansiyellerini keşfederek global ölçekte kariyerlerini hızlandırmalarına ilham veren, yenilikçi ve sürdürülebilir bir topluluk ekosistemi yaratmak.
+                </HoverHighlightText>
+              </p>
+              <a href="#" className="mt-6 inline-flex items-center gap-3 text-white hover:text-white/80">
+                <span className="font-semibold">Learn More</span>
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full ring-1 ring-white/30">
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
 
-        
+          {/* Row 2: Text Left, Image Right */}
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+            <div className="order-2 md:order-1 text-white md:pr-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/10 text-sm mb-5">
+                <span className="inline-block h-2 w-2 rounded-full bg-amber-400" />
+                Our Mission
+              </div>
+              <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                <HoverHighlightText className="block" baseColor="#9ca3af" highlightColor="#ffffff" size={180}>
+                  Space Talks & Community
+                </HoverHighlightText>
+              </h3>
+              <p className="mt-4 text-lg md:text-xl max-w-2xl">
+                <HoverHighlightText className="block" baseColor="#9ca3af" highlightColor="#ffffff" size={180}>
+                  Profesyonellere ve girişimcilere; networking, yetkinlik geliştirme, mentorluk ve kariyer fırsatları sunarak, onların hem kişisel hem de mesleki yolculuklarında güvenilir bir yol arkadaşı olmak.
+                </HoverHighlightText>
+              </p>
+              <a href="#" className="mt-6 inline-flex items-center gap-3 text-white hover:text-white/80">
+                <span className="font-semibold">Learn More</span>
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full ring-1 ring-white/30">
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+            <div className="order-1 md:order-2 relative w-full h-[22rem] md:h-[32rem] rounded-3xl overflow-hidden ring-1 ring-white/10">
+              <Image src={imgRight} alt="Saturn and stars" fill className="object-cover" />
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* Floating Elements */}
-      <motion.div
-        className="absolute top-20 left-10 opacity-20"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-4 h-4 bg-white rounded-full"></div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-20 left-20 opacity-20"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      >
-        <div className="w-3 h-3 bg-white rounded-full"></div>
-      </motion.div>
-
-      <motion.div
-        className="absolute top-1/2 right-20 opacity-20"
-        animate={{ x: [0, 5, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      >
-        <div className="w-2 h-2 bg-white rounded-full"></div>
-      </motion.div>
     </section>
   )
 }

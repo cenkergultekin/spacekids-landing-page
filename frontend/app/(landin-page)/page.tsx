@@ -7,6 +7,7 @@ import CustomerSpotlight from '@/app/(landin-page)/components/CustomerSpotlight'
 import StatisticsSection from '@/app/(landin-page)/components/StatisticsSection'
 import FAQSection from '@/app/(landin-page)/components/FAQSection'
 import Footer from '@/app/(landin-page)/components/Footer'
+import TitleSection from '@/app/(landin-page)/components/TitleSection'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ModernCardsSection />
       <CustomerSpotlight />
       <WorkforceManagement />
+      <TitleSection />
       <StatisticsSection />
       <FAQSection />
       <Footer />

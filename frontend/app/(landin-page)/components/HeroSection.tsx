@@ -1,43 +1,57 @@
 'use client'
 
 import Image from 'next/image'
-import astronautPng from '@/images/Entire_Saturn.png'
-import frameTop from '@/images/frametop.png'
+import moonPng from '@/images/Moon.png'
+import starsVideo from '@/images/Stars.mp4'
+import astronautPng from '@/images/astronot1.png'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[75vh] md:min-h-screen overflow-hidden">
-      {/* Background image */}
-      <Image
-        src={frameTop}
-        alt="Background stars"
-        fill
-        priority
-        className="object-cover object-top -z-10 select-none pointer-events-none"
+    <section id="hero" className="relative min-h-[75vh] md:min-h-screen overflow-hidden">
+      {/* Background video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+        src={starsVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
       />
 
-      {/* Astronaut at right - fills right half of the screen */}
-      <div className="absolute inset-y-0 right-0 w-5/12 hidden md:block">
+      {/* Moon at bottom-right - large */}
+      <Image
+        src={moonPng}
+        alt="Moon"
+        priority
+        width={820}
+        height={820}
+        className="hidden md:block absolute bottom-0 right-0 translate-x-[40%] translate-y-[36%] transform pointer-events-none select-none w-[900px] md:w-[1100px] lg:w-[1300px] h-auto z-0"
+      />
+
+      {/* Astronaut floating above the moon */}
+      <div className="hidden md:block absolute bottom-12 right-40 lg:bottom-16 lg:right-10 z-10 float-slow">
         <Image
           src={astronautPng}
           alt="Astronaut"
-          fill
           priority
-          className="object-cover object-right"
+          width={320}
+          height={320}
+          className="pointer-events-none select-none w-[180px] md:w-[400px] lg:w-[500px] h-auto"
         />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-28 pb-16 md:pt-44 md:pb-24 flex items-center">
         {/* Text at left */}
-        <div className="relative z-10 mr-auto w-full md:w-1/2 text-left text-white md:pr-10 -ml-2 md:-ml-8 mt-8 md:mt-16">
-          <div className="flex items-center justify-start gap-4 mb-8">
+        <div className="relative z-10 mr-auto w-full md:w-1/2 text-left text-white md:pr-10 -ml-6 md:-ml-14 mt-8 md:mt-16">
+          <div className="flex items-center justify-start gap-4 mb-5">
             <span className="hidden md:block h-px w-20 bg-white/90" />
             <span className="text-cyan-100 tracking-[0.35em] text-sm md:text-base uppercase">To The Space</span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-wider leading-none">NEOWISE</h1>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-wider leading-none">SPACEYOUTH</h1>
 
-          <div className="flex justify-start mt-3 mb-6">
+          <div className="flex justify-start mb-8 mt-8">
             <span className="h-[3px] w-24 md:w-80 bg-cyan-300" />
           </div>
 
@@ -47,6 +61,19 @@ export default function HeroSection() {
           </p>
         </div>
       </div>
+
+      {/* Local animation styles for slow floating effect */}
+      <style jsx>{`
+        @keyframes floatSlow {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-30px); }
+          100% { transform: translateY(0); }
+        }
+        .float-slow {
+          animation: floatSlow 12s ease-in-out infinite;
+          will-change: transform;
+        }
+      `}</style>
     </section>
   )
 }

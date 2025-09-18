@@ -1,185 +1,268 @@
-'use client'
+"use client"
 
-import { motion, useScroll } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
-import { ArrowRight } from 'lucide-react'
-import token01 from '@/images/token01.webp'
-import token02 from '@/images/token02.webp'
-import workshop from '@/images/workshop01.webp'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 
-export default function WorkforceManagement() {
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const [active, setActive] = useState<number>(0)
+// 9 görsel için import'lar
+import card1 from "@/images/card1.jpg"
+import card2 from "@/images/card2.jpg"
+import card3 from "@/images/card3.jpg"
+import saturn from "@/images/saturn.jpg"
+import space from "@/images/space.jpg"
+import token01 from "@/images/token01.webp"
+import token02 from "@/images/token02.webp"
+import workshop01 from "@/images/workshop01.webp"
+import astronaut from "@/images/astronot1.png"
 
-  // Scroll-jacking: keep section sticky, drive active by progress
-  const { scrollYProgress } = useScroll({ target: wrapperRef, offset: ["start start", "end end"] })
+type Card = {
+  image: string
+  title: string
+  description: string
+}
 
-  const features = [
-    {
-      title: 'Eğitimler',
-      blurb:
-        "İş ilanlarını atlayın, topluluk içindeki eğitim ve kaynaklara hızlıca erişin. Yeni arkadaşlar edinin, yeteneklerinizi geliştirin ve birlikte öğrenmenin gücünü keşfedin.",
-      image:
-        token01.src,
-    },
-    {
-      title: 'Kariyer Yolları',
-      blurb:
-        'Tüm ihtiyaçlarınız tek bir yerde – yeni katılımcı rehberlerinden eğitim takibi, performans değerlendirmesi ve raporlamaya kadar.',
-      image:
-        token02.src,
-    },
-    {
-      title: 'Workshop Etkinlikleri',
-      blurb:
-        'Otomatik hesaplamalar, uyumlu bordrolar ve akıllı bilgiler – zahmetsiz ve hızlı.',
-      image:
-        workshop.src,
-    },
-    {
-      title: 'İş Fırsatları',
-      blurb:
-        'Takımlara iletişim, geri bildirim ve takdir için keyifli araçlar sunun; bağlılığı yüksek tutun.',
-      image:
-        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop',
-    },
-    {
-      title: 'K-Coin Fırsatları',
-      blurb:
-        'Akıllı programları dakikalar içinde oluşturun. Katılım, uygunluk ve kaynak kullanımını otomatik dengeleyin.',
-      image:
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop',
-    },
-    {
-      title: 'Sertifikalar',
-      blurb:
-        'Sağlık, emeklilik ve avantajları tek bir yerde toplayın. Kaydolun, uygunluğu takip edin ve topluluğu bilgilendirin.',
-      image:
-        'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop',
-    },
-    {
-      title: 'Lider Tablosu',
-      blurb:
-        'Web veya mobil üzerinden doğru zaman kayıtları tutun. Onaylar, fazla mesai kuralları ve proje maliyetlendirmesi entegre olarak gelir.',
-      image:
-        'https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1600&auto=format&fit=crop',
-    },
-    {
-      title: 'Notlar',
-      blurb:
-        'Web veya mobil üzerinden doğru zaman kayıtları tutun. Onaylar, fazla mesai kuralları ve proje maliyetlendirmesi entegre olarak gelir.',
-      image:
-        'https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1600&auto=format&fit=crop',
-    },
-    {
-      title: 'Topluluk',
-      blurb:
-        'Web veya mobil üzerinden doğru zaman kayıtları tutun. Onaylar, fazla mesai kuralları ve proje maliyetlendirmesi entegre olarak gelir.',
-      image:
-        'https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1600&auto=format&fit=crop',
-    },
-  ]
+export default function PlatformFeatures() {
+  const cards: Card[] = useMemo(
+    () => [
+      { image: (card1 as unknown as { src: string }).src || (card1 as any), title: "Başlık 1", description: "Kısa bir açıklama metni buraya gelecek." },
+      { image: (card2 as unknown as { src: string }).src || (card2 as any), title: "Başlık 2", description: "Örnek açıklama; detayları burada gösterebiliriz." },
+      { image: (card3 as unknown as { src: string }).src || (card3 as any), title: "Başlık 3", description: "Kullanıcıya ek bilgi veren kısa metin." },
+      { image: (saturn as unknown as { src: string }).src || (saturn as any), title: "Satürn", description: "Halkalı gezegene dair vurgular." },
+      { image: (space as unknown as { src: string }).src || (space as any), title: "Uzay", description: "Karanlık boşlukta yıldızlar ve keşif." },
+      { image: (token01 as unknown as { src: string }).src || (token01 as any), title: "Token 01", description: "Koleksiyon için örnek kart açıklaması." },
+      { image: (token02 as unknown as { src: string }).src || (token02 as any), title: "Token 02", description: "Alternatif bir kart açıklaması." },
+      { image: (workshop01 as unknown as { src: string }).src || (workshop01 as any), title: "Atölye", description: "Eğitim ve atölye içerikleri." },
+      { image: (astronaut as unknown as { src: string }).src || (astronaut as any), title: "Astronot", description: "Macera başlıyor: keşfe hazır mısın?" },
+    ],
+    []
+  )
 
-  // Map scroll progress to active index
+  // Responsive: mobile'de tek kart, desktop'ta 3 kart göster
+  const [isMobile, setIsMobile] = useState(false)
+  const [page, setPage] = useState(0)
+  const [paused, setPaused] = useState(false)
+
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (p) => {
-      // p: 0..1 across wrapper height; split into equal segments per feature
-      // Use floor to avoid jitter near boundaries
-      const idx = Math.min(features.length - 1, Math.floor(p * features.length + 0.0001))
-      setActive(idx)
-    })
-    return () => unsubscribe()
-  }, [scrollYProgress])
+    const mq = window.matchMedia("(max-width: 768px)")
+    const handler = () => setIsMobile(mq.matches)
+    handler()
+    mq.addEventListener("change", handler)
+    return () => mq.removeEventListener("change", handler)
+  }, [])
 
-  // When a dot is clicked, also scroll the document to the matching segment
-  const scrollToFeature = (i: number) => {
-    const el = wrapperRef.current
-    if (!el) {
-      setActive(i)
-      return
+  const pages = useMemo(() => (isMobile ? cards.map((c) => [c]) : [cards.slice(0, 3), cards.slice(3, 6), cards.slice(6, 9)]), [cards, isMobile])
+  const totalPages = pages.length
+
+  const goPrev = useCallback(() => setPage((p) => (p - 1 + totalPages) % totalPages), [totalPages])
+  const goNext = useCallback(() => setPage((p) => (p + 1) % totalPages), [totalPages])
+
+  // Klavye ile yön tuşları
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") goPrev()
+      if (e.key === "ArrowRight") goNext()
     }
-    const rect = el.getBoundingClientRect()
-    const wrapperTop = window.scrollY + rect.top
-    const wrapperHeight = el.offsetHeight
-    // position at the start of the i-th segment (slightly inside to avoid boundary jitter)
-    const p = Math.min(1, Math.max(0, (i + 0.01) / features.length))
-    const targetY = Math.round(wrapperTop + p * wrapperHeight)
-    setActive(i)
-    window.scrollTo({ top: targetY, behavior: 'smooth' })
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [goPrev, goNext])
+
+  // Autoplay: belli aralıklarla otomatik ileri
+  useEffect(() => {
+    if (paused) return
+    const id = setInterval(() => {
+      goNext()
+    }, 3500)
+    return () => clearInterval(id)
+  }, [goNext, paused])
+
+  // Touch swipe için basit handler'lar
+  const touchStartX = useRef<number | null>(null)
+  const touchDeltaX = useRef(0)
+  const onTouchStart = (e: React.TouchEvent) => {
+    setPaused(true)
+    touchStartX.current = e.touches[0].clientX
+    touchDeltaX.current = 0
+  }
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current != null) {
+      touchDeltaX.current = e.touches[0].clientX - touchStartX.current
+    }
+  }
+  const onTouchEnd = () => {
+    const threshold = 50
+    if (touchDeltaX.current > threshold) {
+      goPrev()
+    } else if (touchDeltaX.current < -threshold) {
+      goNext()
+    }
+    touchStartX.current = null
+    touchDeltaX.current = 0
+    // küçük bir gecikme ile autoplay'i geri aç
+    setTimeout(() => setPaused(true), 400)
   }
 
   return (
-    <div ref={wrapperRef} className="relative min-h-[300vh]">
-
-      {/* Sticky full-viewport content; screen stays fixed while scrolling */}
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          {/* Başlık */}
-          <div className="text-center pt-16 mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">SpaceYouth Akademi</h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto text-center mb-12">Kaydırdıkça sol içerik ve sağ görsel değişir, ekran sabit kalır.</p>
-          </div>
-
-          {/* Content */}
-          <div className="grid lg:grid-cols-12 gap-12 items-center flex-1">
-            {/* Sol: Aktif özelliğin içeriği */}
-            <div className="lg:col-span-5">
-              <div className="mx-auto max-w-[20rem] sm:max-w-none">
-                <motion.h3
-                  key={`title-${active}`}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35 }}
-                  className="text-2xl font-semibold text-white"
-                >
-                  {features[active].title}
-                </motion.h3>
-                <motion.p
-                  key={`blurb-${active}`}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: 0.05 }}
-                  className="mt-2 text-white/80 text-lg leading-relaxed"
-                >
-                  {features[active].blurb}
-                </motion.p>
-
-                {/* Progress / dots */}
-                <div className="mt-8 flex items-center gap-2">
-                  {features.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => scrollToFeature(i)}
-                      aria-label={`Göster ${i + 1}. özellik`}
-                      className={`h-2 w-8 rounded-full transition-all ${
-                        active === i ? 'bg-white' : 'bg-white/50 hover:bg-white/70'
-                      }`}
-                    />
-                  ))}
-                  <ArrowRight className="ml-3 text-white/50" />
-                </div>
-              </div>
+    <section className="pf-root" aria-label="Platform features full-screen carousel">
+      {/* Slider viewport */}
+      <div
+        className="pf-viewport"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div
+          className="pf-track"
+          style={{ transform: `translateX(-${page * 100}vw)`, width: `${pages.length * 100}vw` }}
+        >
+          {pages.map((group, idx) => (
+            <div className="pf-page" key={idx} aria-roledescription="slide" aria-label={`Sayfa ${idx + 1} / ${totalPages}`}>
+              {group.map((c, i) => (
+                <article className="pf-card" key={`${idx}-${i}`} style={{ backgroundImage: `url(${c.image})` }}>
+                  <div className="pf-overlay" />
+                  <div className="pf-content">
+                    <h3 className="pf-heading">{c.title}</h3>
+                    <p className="pf-desc">{c.description}</p>
+                  </div>
+                </article>
+              ))}
             </div>
-
-            {/* Sağ: Sabit büyük görsel alanı */}
-            <div className="lg:col-span-7 lg:justify-self-end w-full">
-              <div className="relative w-full h-[58vh] md:h-[64vh] lg:h-[70vh] rounded-3xl overflow-hidden ring-1 ring-black/5 bg-gray-100 shadow-lg">
-                {features.map((f, i) => (
-                  <motion.img
-                    key={f.title}
-                    src={f.image}
-                    alt={f.title}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    initial={false}
-                    animate={{ opacity: active === i ? 1 : 0, scale: active === i ? 1 : 1.02 }}
-                    transition={{ duration: 0.45 }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+
+      {/* Arrows */}
+      <button className="pf-arrow pf-left" aria-label="Önceki" onClick={goPrev}>
+        <span>❮</span>
+      </button>
+      <button className="pf-arrow pf-right" aria-label="Sonraki" onClick={goNext}>
+        <span>❯</span>
+      </button>
+
+      {/* Dots */}
+      <div className="pf-dots" role="tablist" aria-label="Sayfa göstergeleri">
+        {Array.from({ length: totalPages }).map((_, i) => (
+          <button
+            key={i}
+            role="tab"
+            aria-selected={page === i}
+            className={`pf-dot ${page === i ? "active" : ""}`}
+            onClick={() => setPage(i)}
+          />
+        ))}
+      </div>
+
+      <style jsx>{`
+        .pf-root {
+          position: relative;
+          width: 100%;
+          height: 86vh;
+          overflow: hidden;
+          background: #000;
+          color: #fff;
+        }
+        .pf-viewport {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .pf-track {
+          display: flex;
+          width: 300vw; /* JS ile override ediliyor */
+          height: 100%;
+          transition: transform 500ms ease;
+        }
+        .pf-page {
+          width: 100vw; /* her sayfa tam ekran */
+          height: 100%;
+          display: flex;
+          align-items: center; /* kartları dikeyde ortala */
+        }
+        .pf-card {
+          flex: 1 0 33.3333%;
+          height: 80%; /* fotoğrafı biraz kısalt */
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          /* kartlar arası boşluk yok */
+          position: relative;
+          isolation: isolate;
+        }
+        .pf-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.35));
+          z-index: 1;
+          transition: background 220ms ease;
+        }
+        .pf-card:hover .pf-overlay {
+          background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+        }
+
+        .pf-content {
+          position: absolute;
+          inset: auto 0 20px 0;
+          z-index: 2;
+          padding: 14px 18px;
+          color: #fff;
+          opacity: 0;
+          transform: translateY(8px);
+          transition: opacity 220ms ease, transform 220ms ease;
+          pointer-events: none;
+        }
+        .pf-heading { font-weight: 700; font-size: 18px; letter-spacing: 0.2px; }
+        .pf-desc { margin-top: 6px; font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5; }
+        .pf-card:hover .pf-content { opacity: 1; transform: translateY(0); }
+
+        .pf-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 44px;
+          height: 44px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.14);
+          border: 1px solid rgba(255,255,255,0.25);
+          display: grid;
+          place-items: center;
+          color: #fff;
+          cursor: pointer;
+          z-index: 5;
+          backdrop-filter: blur(2px);
+          transition: background 160ms ease, transform 160ms ease;
+        }
+        .pf-arrow:hover { background: rgba(255,255,255,0.22); }
+        .pf-arrow:active { transform: translateY(-50%) scale(0.98); }
+        .pf-left { left: 12px; }
+        .pf-right { right: 12px; }
+
+        .pf-dots {
+          position: absolute;
+          left: 50%;
+          bottom: 5%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 8px;
+          z-index: 6;
+        }
+        .pf-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.35);
+          border: none;
+          cursor: pointer;
+        }
+        .pf-dot.active { background: #fff; }
+
+        @media (max-width: 768px) {
+          .pf-card { flex-basis: 100%; height: 76%; }
+          .pf-left { left: 8px; }
+          .pf-right { right: 8px; }
+          /* Mobilde içerik her zaman görünsün */
+          .pf-content { opacity: 1; transform: none; }
+          .pf-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55)); }
+        }
+      `}</style>
+    </section>
   )
 }
